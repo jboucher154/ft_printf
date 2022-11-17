@@ -6,11 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 11:48:37 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/08 11:48:39 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:49:52 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static	void	fill_joined(char *joined, char const *s1, char const *s2)
 {

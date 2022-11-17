@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 11:46:11 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/17 12:27:38 by jebouche         ###   ########.fr       */
+/*   Created: 2022/11/17 09:29:13 by jebouche          #+#    #+#             */
+/*   Updated: 2022/11/17 10:58:08 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#ifndef TEST_H
+# define TEST_H
+# include <stdio.h>
+# include <unistd.h>
 
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*reserved;
-
-	if (count == 0 || size == 0)
-		return (ft_calloc(1, 1));
-	if (count * size % size != 0 || count * size % count != 0)
-		return (NULL);
-	reserved = malloc(size * count);
-	if (reserved)
-		ft_bzero(reserved, count * size);
-	return (reserved);
-}
+#endif

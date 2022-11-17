@@ -6,11 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 11:49:20 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/08 11:49:22 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:50:29 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static void	was_found(size_t *tracked, const char *needle)
 {
