@@ -12,15 +12,15 @@
 
 NAME = libftprintf.a
 
-SRCS =  srcs/f_isalpha.c srcs/f_isdigit.c srcs/f_isalnum.c srcs/f_isascii.c \
-		srcs/f_isprint.c srcs/f_strlen.c srcs/f_memset.c srcs/f_bzero.c \
-		srcs/f_memcpy.c srcs/f_toupper.c srcs/f_tolower.c \
-		srcs/f_strchr.c srcs/f_strrchr.c srcs/f_strncmp.c srcs/f_memchr.c \
-		srcs/f_memcmp.c srcs/f_memmove.c srcs/f_strlcpy.c srcs/f_strnstr.c \
-		srcs/f_strlcat.c srcs/f_strdup.c srcs/f_calloc.c srcs/f_atoi.c \
-		srcs/f_substr.c srcs/f_strjoin.c srcs/f_strtrim.c srcs/f_split.c \
-		srcs/f_itoa.c srcs/f_strmapi.c srcs/f_striteri.c srcs/f_putchar_fd.c \
-		srcs/f_putstr_fd.c srcs/f_putendl_fd.c srcs/f_putnbr_fd.c
+SRCS =  srcs/ft_isalpha.c srcs/ft_isdigit.c srcs/ft_isalnum.c srcs/ft_isascii.c \
+		srcs/ft_isprint.c srcs/ft_strlen.c srcs/ft_memset.c srcs/ft_bzero.c \
+		srcs/ft_memcpy.c srcs/ft_toupper.c srcs/ft_tolower.c \
+		srcs/ft_strchr.c srcs/ft_strrchr.c srcs/ft_strncmp.c srcs/ft_memchr.c \
+		srcs/ft_memcmp.c srcs/ft_memmove.c srcs/ft_strlcpy.c srcs/ft_strnstr.c \
+		srcs/ft_strlcat.c srcs/ft_strdup.c srcs/ft_calloc.c srcs/ft_atoi.c \
+		srcs/ft_substr.c srcs/ft_strjoin.c srcs/ft_strtrim.c srcs/ft_split.c \
+		srcs/ft_itoa.c srcs/ft_strmapi.c srcs/ft_striteri.c srcs/ft_putchar_fd.c \
+		srcs/ft_putstr_fd.c srcs/ft_putendl_fd.c srcs/ft_putnbr_fd.c
 
 
 OBJS =  ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o \
@@ -45,10 +45,10 @@ $(OBJS): $(SRCS)
 		$(CC) $(CFLAGS) -c $(SRCS)
 
 clean:
-		/bin/rm -f $(OBJS)
+		rm -f $(OBJS)
 
 fclean: clean
-		/bin/rm -f $(NAME)
+		rm -f $(NAME)
 
 re: fclean all
 

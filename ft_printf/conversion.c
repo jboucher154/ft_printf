@@ -13,6 +13,8 @@
 #include "includes/ft_printf.h"
 #include "includes/libft.h"
 
+#include <string.h> //remove
+
 static int	is_format_specifier(char c);
 static int	is_flag(char c);
 static int	handle_specifier(int specifier, va_list *list, int *count);
@@ -32,10 +34,16 @@ int	convert_print(const char *str, unsigned int index, va_list *lst, int *count)
 		i++;
 		index++;
 	}
-	flags = ft_substr(str, index, end_convert + 1);
+	// ft_putnbr_fd(index, 0); //debug
+	flags = ft_substr(str, index, end_convert);
+	// ft_putendl_fd(flags, 0); //debug
 	while (is_format_specifier(str[index++]))
 		end_convert++;
+	// ft_putnbr_fd(end_convert, 0); //debug
+	ft_putchar_fd(str[index + i], 0); //debug
+	ft_putstr_fd(str, 0);
 	specifiers = ft_substr(str, index + i, end_convert);
+	ft_putendl_fd(specifiers, 0); //debug -> not printing anything...
 	// handle_flags(flags, count);
 	i = 0;
 	while (specifiers[i] != '\0')

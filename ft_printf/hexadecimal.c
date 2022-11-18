@@ -15,8 +15,8 @@
 
 int			print_hex(char specifier, va_list *list);
 int			print_pointer(va_list *list);
-static int	get_num_len(unsigned long n);
-char		*ft_itoa_hex(unsigned long num);
+static int	get_num_len(unsigned long n, int base);
+char		*ft_itoa_ubase(unsigned long num, int base);
 void		hex_to_caps(char **str);
 
 int	print_hex(char specifier, va_list *list)
@@ -26,7 +26,7 @@ int	print_hex(char specifier, va_list *list)
 	char			*hex_str;
 
 	hex_int = va_arg(*list, unsigned int);
-	hex_str = ft_itoa_hex(hex_int);
+	hex_str = ft_itoa_ubase(hex_int, 16);
 	if (specifier == 'X')
 		hex_to_caps(&hex_str);
 	ft_putstr_fd(hex_str, 0);
@@ -42,38 +42,39 @@ int	print_pointer(va_list *list)
 	int				count;
 
 	addy = va_arg(*list, unsigned long);
-	addy_str = ft_itoa_hex(addy);
+	addy_str = ft_itoa_ubase(addy, 16);
 	ft_putstr_fd("0x", 0);
 	count = ft_strlen(addy_str) + 2;
 	free(addy_str);
 	return (count);
 }
 
-static int	get_num_len(unsigned long n)
+static int	get_num_len(unsigned long n, int base)
 {
 	int	i;
 
 	i = 0;
-	if (n < 16)
+	if (n < base)
 		i++;
 	else
 	{
-		while (n > 16)
+		while (n > base)
 		{
-			n = n / 16;
+			n = n / base;
 			i++;
 		}
 	}
 	return (i);
 }
 
-char	*ft_itoa_hex(unsigned long num)
+//protect against negative bases...
+char	*ft_itoa_ubase(unsigned long num, int base)
 {
 	char		*str_num;
 	int			len;
 	int			to_add;
 
-	len = get_num_len(num);
+	len = get_num_len(num, base);
 	str_num = (char *) malloc(sizeof(char) * (len + 1));
 	if (str_num)
 	{
@@ -82,12 +83,12 @@ char	*ft_itoa_hex(unsigned long num)
 			str_num[0] = '0';
 		while (num > 0)
 		{
-			to_add = (num % 16);
+			to_add = (num % base);
 			if (to_add <= 9)
 				str_num[len--] = to_add + 48;
 			else
 				str_num[len--] = to_add + 88;
-			num = num / 16;
+			num = num / base;
 		}
 	}
 	return (str_num);

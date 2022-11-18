@@ -86,6 +86,11 @@ int	main(void)
 	printf("This is an uppercase hexadecimal with -: %-X\n", hex);
 	printf("This is a percent sign with -: %-%\n");
 
+	printf("char only:  |%c|\n", c);
+	printf("-3 with a char:  |%-3c|\n", c);
+	printf("3 with a char:  |%3c|\n", c);
+	
+
 	//+ 
 	//applicable forms: signed formats
 	//no effect on: unsigned, hex, char/str

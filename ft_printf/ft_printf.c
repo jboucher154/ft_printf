@@ -19,14 +19,12 @@ int	ft_printf(const char *input, ...)
 {
 	va_list			list;
 	int				printed;
-	unsigned int	index;
 
 	printed = 0;
-	index = 0;
 	if (input)
 	{
 		va_start(list, input);
-		print_out(input, index, &list, &printed);
+		print_out(input, 0, &list, &printed);
 		va_end(list);
 	}
 	else
@@ -42,13 +40,13 @@ void	print_out(const char *str, unsigned int i, va_list *lst, int *c)
 	while (str[i] != '%' && str[i] != '\0')
 	{
 		ft_putchar_fd(str[i], 0);
-		c++;
+		(*c)++;
 		i++;
 	}	
 	if (str[i] == '%' && str[i + 1] == '%')
 	{
 		ft_putchar_fd('%', 0);
-		c++;
+		(*c)++;
 		i += 2;
 		print_out(str, i, lst, c);
 	}
@@ -66,7 +64,8 @@ void	print_out(const char *str, unsigned int i, va_list *lst, int *c)
 
 int	main(void)
 {
+	char	test = 't';
 	ft_printf("no conversion\n");
-	ft_printf("char test: %c", 'p');
+	ft_printf("char test: %c", test);
 	return (0);
 }
