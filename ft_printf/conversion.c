@@ -6,62 +6,50 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:28:31 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/17 17:51:59 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/18 17:15:41 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include "includes/libft.h"
 
-#include <string.h> //remove
-
-static int	is_format_specifier(char c);
-static int	is_flag(char c);
-static int	handle_specifier(int specifier, va_list *list, int *count);
+int		is_format_specifier(char c);
+int		is_flag(char c);
+char	*get_legend(const char *str, unsigned int index, unsigned int *end);
+int		print_from_legend(char *legend, va_list *list);
+int		convert_print(const char *str, unsigned int index, va_list *lst, int *count);
 
 int	convert_print(const char *str, unsigned int index, va_list *lst, int *count)
 {
-	unsigned int	end_convert;
-	char			*specifiers;
-	char			*flags;
-	int				i;
+	unsigned int	end;
+	char			*legend;
 
-	end_convert = 0;
-	i = 0;
-	while (is_flag(str[index]))
-	{
-		end_convert++;
-		i++;
-		index++;
-	}
-	// ft_putnbr_fd(index, 0); //debug
-	flags = ft_substr(str, index, end_convert);
-	// ft_putendl_fd(flags, 0); //debug
-	while (is_format_specifier(str[index++]))
-		end_convert++;
-	// ft_putnbr_fd(end_convert, 0); //debug
-	ft_putchar_fd(str[index + i], 0); //debug
-	ft_putstr_fd(str, 0);
-	specifiers = ft_substr(str, index + i, end_convert);
-	ft_putendl_fd(specifiers, 0); //debug -> not printing anything...
-	// handle_flags(flags, count);
-	i = 0;
-	while (specifiers[i] != '\0')
-		handle_specifier(is_format_specifier(specifiers[i++]), lst, count);
-	free(flags);
-	free(specifiers);
-	return (index + end_convert);
+	end = 0;
+	legend = get_legend(str, index, &end);
+	print_from_legend(legend, lst);
+	free(legend);
+	return (index + end);
 }
 
-//handle numbers accociated with flags too
-static int	is_flag(char c)
+int	is_flag(char c)
 {
-	if (c == ' ' || c == '#' || c == '-' || c == '+' || c == '.' || c == '0')
+	if (c == '-')
 		return (1);
-	return (0);
+	else if (c == '0')
+		return (2);
+	else if (c == '.')
+		return (4);
+	else if (c == '#')
+		return (10);
+	else if (c == ' ')
+		return (20);
+	else if (c == '+')
+		return (40);
+	else
+		return (0);
 }
 
-static int	is_format_specifier(char c)
+int	is_format_specifier(char c)
 {
 	if (c == 'c')
 		return (1);
@@ -79,26 +67,47 @@ static int	is_format_specifier(char c)
 		return (7);
 	else if (c == 'p')
 		return (8);
+	else if (c == '%')
+		return (9);
 	else
 		return (0);
 }
 
-static int	handle_specifier(int specifier, va_list *list, int *count)
+char	*get_legend(const char *str, unsigned int index, unsigned int *end)
 {
-	if (specifier == 1)
+	while (is_flag(str[index + (*end)]) || ft_isdigit(str[index + (*end)]))
+		(*end)++;
+	if (is_format_specifier(str[index + (*end)]))
+		(*end)++;
+	return (ft_substr(str, index, *end));
+}
+
+// determine flags vs padding vs specifier
+//ASSUME SINGLE CHAR SPECIFIER
+
+int	print_from_legend(char *legend, va_list *list)
+{
+	char	specifier;
+	int		count;
+	int		flags;
+	int		i;
+
+	i = 0;
+	flags = 0;
+	specifier = legend[ft_strlen(legend) - 1];
+	if (!is_format_specifier(specifier))
+		return (0); //invalid input...
+	while (is_flag(legend[i]))
 	{
-		ft_putchar_fd(va_arg(*list, int), 0);
-		(*count) += 1;
+		if (legend[i] == '0' && i == 0)
+			flags += is_flag(legend[i++]);
+		else if (legend[i] == '0' && ft_isdigit(legend[i - 1]))
+			i++;
+		else if (ft_isdigit(legend[i]))
+			i++;
+		else
+			flags += is_flag(legend[i++]);
 	}
-	else if (specifier == 2)
-		(*count) += ft_putstr_fd(va_arg(*list, char *), 0);
-	else if (specifier == 3 || specifier == 4)
-		(*count) += print_int_dec(specifier, list);
-	else if (specifier == 5)
-		print_unsigned(list, count);
-	else if (specifier == 6 || specifier == 7)
-		(*count) += print_hex(specifier, list);
-	else if (specifier == 8)
-		(*count) += print_pointer(list);
-	return (0);
+	count = handle_per_specifier(specifier, legend, flags, list);
+	return (count);
 }
