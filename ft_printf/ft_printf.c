@@ -12,6 +12,7 @@
 
 #include "includes/ft_printf.h"
 #include "includes/libft.h"
+#include <stdio.h> //remove
 
 void	print_out(const char *str, unsigned int i, va_list *lst, int *c);
 
@@ -69,14 +70,80 @@ int	main(void)
 	//char tests
 	char	test = 't';
 	
-	ft_printf("char test: %c\n", test);
-	ft_printf("char test: %c %c\n", test, test);
-	ft_printf("char test: %c %c %c\n", test, test, 'p');
-	ft_printf("char test: %c %c %c %c %c\n", test, test, test, test, test);
-	ft_printf("char test: %-c\n", test);
-	ft_printf("char test: |%-2c|\n", test);
-	ft_printf("char test: |%-17c|\n", test);
-	ft_printf("char test: |%2-c|\n", test); //default prints: char test: |t|
+	// ft_printf("char test: %c\n", test);
+	// ft_printf("char test: %c %c\n", test, test);
+	// ft_printf("char test: %c %c %c\n", test, test, 'p');
+	// ft_printf("char test: %c %c %c %c %c\n", test, test, test, test, test);
+	// ft_printf("char test: %-c\n", test);
+	// ft_printf("char test: |%-2c|\n", test);
+	// ft_printf("char test: |%-17c|\n", test);
+	// ft_printf("char test: |%2-c|\n", test); //default prints: char test: |t|
+	// ft_printf("char test: |%5c|\n", test);
+
+	//string test
+
+	// char	*str = "test";
+	
+	// ft_printf("string test: %s\n", str);
+	// ft_printf("string test: %s %s\n", str, str);
+	// ft_printf("string test: %s %s %s\n", str, str, "literal");
+	// ft_printf("string test: %s %s %s %s %s\n", str, str, str, str, str);
+	// ft_printf("string test: %-s\n", str);
+	// ft_printf("string test: |%-2s|\n", str);
+	// ft_printf("string test: |%-17s|\n", str);
+	// ft_printf("string test: |%2-s|\n", str); //default prints: string test: |t|
+	// ft_printf("string test: |%5s|\n", str);
+
+	// ft_printf("\nstring test: %.s\n");
+	// ft_printf("string test: %.6s\n");
+	// ft_printf("string test: %.2s\n");
+
+	// ft_printf("\nstring test: |%-.s|\n");
+	// ft_printf("string test: |%-.6s|\n");
+	// ft_printf("string test: |%-8.2s|\n");
+	// ft_printf("string test: |%-8.4s|\n");
+
+	//hex test
+
+	int	hex = 123456;
+	// ft_printf("\nhex test lc: |%x|\n", hex);
+	// ft_printf("\nhex test uc: |%X|\n", hex);
+	// printf("\nprintf conversion: |%x|\n", hex);
+
+	// ft_printf("\nhex test lc: |%x|\n", 56789654);
+	// printf("\nprintf conversion: |%x|\n", 56789654);
+
+
+	// ft_printf("\nThis is a lowercase hexadecimalwith #: %#x\n", hex);
+	// printf("printf lowercase hexadecimalwith #: %#x\n", hex);
+	//padding not coming out right
+	// ft_printf("This is a lowercase hexadecimalwith #6: %#6x\n", hex);
+	// printf("printf lowercase hexadecimalwith #6: %#6x\n", hex);
+
+	// ft_printf("This is an uppercase hexadecimalwith #: %#X\n", hex);
+	// printf("printf uppercase hexadecimalwith #: %#X\n", hex);
+
+	// ft_printf("This is a lowercase hexadecimalwith 0#6: |%0#6x|\n", hex);
+	// printf("printf lc hexadecimalwith 0#6: |%0#6x|\n", hex);
+
+	// ft_printf("This is a lowercase hexadecimalwith 0#6: |%#06x|\n", hex);
+	// printf("printf lowercase hexadecimalwith 0#6: |%#06x|\n", hex);
+
+	// ft_printf("This is a lowercase hexadecimalwith -#6: |%-#6x|\n", hex); //broken, inf loop
+	// printf("printflowercase hexadecimalwith -#6: |%-#6x|\n", hex);
+
+	// ft_printf("This is a lowercase hexadecimalwith #-6: |%#-6x|\n", hex); //not right spacing
+	// printf("printf lowercase hexadecimalwith #-6: |%#-6x|\n", hex);
+
+	// ft_printf("This is a lowercase hexadecimalwith #.6: |%#.6x|\n", hex);
+	// printf("printf lowercase hexadecimalwith #.6: |%#.6x|\n", hex);
+
+	// ft_printf("This is a lowercase hexadecimalwith #10.6: |%#10.6x|\n", hex);
+	// ft_printf("printf lowercase hexadecimalwith #10.6: |%#10.6x|\n", hex);
+
+	// ft_printf("ft - lc hexadecimalwith #10.6: |%#10.6x|\n", hex); //spacing wrong
+	// printf("Printf - lc hexadecimalwith #10.6: |%#10.6x|\n", hex);
+
 
 
 	return (0);

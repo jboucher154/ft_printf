@@ -12,25 +12,48 @@
 
 #include "includes/ft_printf.h"
 #include "includes/libft.h"
+#include <stdio.h> //remove
 
-int			print_hex(char specifier, va_list *list);
+int	print_hex(t_legend ***legend, va_list *list);
 int			print_pointer(va_list *list);
 static int	get_num_len(unsigned long n, int base);
 char		*ft_itoa_ubase(unsigned long num, int base);
 void		hex_to_caps(char **str);
 
-int	print_hex(char specifier, va_list *list)
+int	print_hex(t_legend ***legend, va_list *list)
 {
-	int				count;
-	unsigned long	hex_int;
-	char			*hex_str;
+	int			count;
+	char		*hex_str;
+	size_t		len;
+	int			z_pad;
+	int			sp_pad;
 
-	hex_int = va_arg(*list, unsigned int);
-	hex_str = ft_itoa_ubase(hex_int, 16);
-	if (specifier == 'X')
+	count = 0;
+	hex_str = ft_itoa_ubase(va_arg(*list, unsigned long), 16);
+	if ((**legend)->specifier == 'X')
 		hex_to_caps(&hex_str);
+	check_ignores(&legend);
+	len = ft_strlen(hex_str);
+	z_pad = (**legend)-> padding;
+	if ((**legend)->period[0] == 1)
+		z_pad = (**legend)->period[1];
+	if ((**legend)->hash == 1)
+		z_pad -= 2;
+	if (z_pad < len)
+		z_pad = 0;
+	else
+		z_pad -= len;
+	sp_pad = (**legend)->padding  - (((**legend)->hash * 2) + len + z_pad);
+	if ((**legend)->padding > 0 && (**legend)->zero == 0)
+		count += print_flag_char(' ', sp_pad);
+	if ((**legend)->hash == 1)
+		count += apply_hex_prefix((**legend)->specifier);
+	count += print_flag_char('0', (z_pad - len));
 	ft_putstr_fd(hex_str, 0);
-	count = ft_strlen(hex_str);
+	count += len;
+	sp_pad = (**legend)->dash[1] - (((**legend)->hash * 2) + len + z_pad);
+	if ((**legend)->dash[0] == 1 && (**legend)->dash[1] > 0)
+		count += print_flag_char(' ', sp_pad);
 	free (hex_str);
 	return (count);
 }
@@ -58,13 +81,13 @@ static int	get_num_len(unsigned long n, int base)
 		i++;
 	else
 	{
-		while (n > base)
+		while (n >= base)
 		{
 			n = n / base;
 			i++;
 		}
 	}
-	return (i);
+	return (i + 1);
 }
 
 //protect against negative bases...
@@ -87,7 +110,7 @@ char	*ft_itoa_ubase(unsigned long num, int base)
 			if (to_add <= 9)
 				str_num[len--] = to_add + 48;
 			else
-				str_num[len--] = to_add + 88;
+				str_num[len--] = to_add + 87;
 			num = num / base;
 		}
 	}
@@ -103,7 +126,7 @@ void	hex_to_caps(char **str)
 	{
 		if (ft_isalpha((*str)[i]))
 		{
-			ft_toupper((*str)[i]);
+			(*str)[i] = ft_toupper((*str)[i]);
 		}
 		i++;
 	}

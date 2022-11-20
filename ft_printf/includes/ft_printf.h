@@ -16,6 +16,20 @@
 # include <stdarg.h>
 // # include <stdint.h> //for uintptr_t
 
+typedef struct	s_legend
+{
+	char	specifier;
+	int		padding;
+	int		zero;
+	int		period[2];
+	int		hash;
+	int		plus;
+	int		space;
+	int		dash[2];
+}			t_legend;
+
+t_legend	*new_legend(void);
+
 //ftprintf
 int		ft_printf(const char *input, ...);
 int		convert_print(const char *input, unsigned int i, va_list *lst, int *c);
@@ -28,12 +42,12 @@ int		print_from_legend(char *legend, va_list *list);
 int		convert_print(const char *str, unsigned int index, va_list *lst, int *count);
 
 //handle_specifiers
-int		handle_per_specifier(char s, char * legend, int flags, va_list *list);
+int		handle_per_specifier(t_legend **legend, va_list *list);
 
 //characters
-int		print_char(va_list *list, char *legend, int flags);
-int		print_percent(va_list *list, char *legend, int flags);
-int		print_string(va_list *list, char *legend, int flags);
+int		print_char(t_legend ***legend, va_list *list);
+int		print_percent(t_legend ***legend, va_list *list);
+int		print_string(t_legend ***legend, va_list *list);
 
 //numbers
 int		print_int_dec(int specifier, va_list *list);
@@ -41,11 +55,14 @@ void	print_unsigned(va_list *list, int *count);
 
 //flags
 int		print_flag_char(char c, int repeat);
-char	*apply_hex_prefix(char s);
-int		get_num_from_leg(char *legend);
+int		apply_hex_prefix(char s);
+void	check_ignores(t_legend ****legend);
 
 //hexadecimal
-int		print_hex(char specifier, va_list *list);
+int		print_hex(t_legend ***legend, va_list *list);
 int		print_pointer(va_list *list);
+
+//legend
+int	fill_legend(const char *str_legend, t_legend **legend);
 
 #endif

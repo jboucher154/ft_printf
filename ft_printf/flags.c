@@ -13,12 +13,19 @@
 #include "includes/ft_printf.h"
 #include "includes/libft.h"
 
-char	*apply_hex_prefix(char s)
+int	apply_hex_prefix(char s)
 {
 	if (s == 'X')
-		return ("0X");
+	{
+		ft_putchar_fd('0', 0);
+		ft_putchar_fd('X', 0);
+	}
 	else
-		return ("0x");
+	{
+		ft_putchar_fd('0', 0);
+		ft_putchar_fd('x', 0);
+	}
+	return (2);
 }
 
 int	print_flag_char(char c, int repeat)
@@ -34,30 +41,14 @@ int	print_flag_char(char c, int repeat)
 	return (repeat);
 }
 
-int	get_num_from_leg(char *legend) //only works for 1 number
+void	check_ignores(t_legend ****legend)
 {
-	int	total;
-	int	i;
-
-	total = 0;
-	i = 0;
-	while (legend[i] != '\0')
+	if ((***legend)->dash[0] == 1 || (***legend)->period[0] == 1)
 	{
-		if (legend[i] == '0' && i == 0)
-			i++;
-		if (ft_isdigit(legend[i]))
-		{
-			while (ft_isdigit(legend[i]))
-			{
-				if (total == 0)
-					total = legend[i] - 48;
-				else
-					total = (total * 10) + legend[i] - 48;
-				i++;
-			}
-			break ;
-		}
-		i++;
+		(***legend)->zero = 0;
 	}
-	return (total);
+	if ((***legend)->plus == 1)
+	{
+		(***legend)->space = 0;
+	}
 }

@@ -12,22 +12,33 @@
 
 #include "includes/ft_printf.h"
 #include "includes/libft.h"
+#include <stdio.h> //remove
 
 int		is_format_specifier(char c);
 int		is_flag(char c);
 char	*get_legend(const char *str, unsigned int index, unsigned int *end);
-int		print_from_legend(char *legend, va_list *list);
 int		convert_print(const char *str, unsigned int index, va_list *lst, int *count);
 
 int	convert_print(const char *str, unsigned int index, va_list *lst, int *count)
 {
 	unsigned int	end;
-	char			*legend;
+	char			*s_leg;
+	t_legend		*leg;
 
 	end = 0;
-	legend = get_legend(str, index, &end);
-	print_from_legend(legend, lst);
-	free(legend);
+	s_leg = get_legend(str, index, &end);
+	leg = new_legend();
+	fill_legend(s_leg, &leg);
+	handle_per_specifier(&leg, lst);
+
+////
+	// printf("legend values\n");
+	// printf("legend  dash => %i\n", leg->dash[0]);
+	// printf("legend  dash pad=> %i\n\n", leg->dash[1]);
+////
+	// print_from_legend(legend, lst);
+	free(leg);
+	free (s_leg);
 	return (index + end);
 }
 
@@ -80,34 +91,4 @@ char	*get_legend(const char *str, unsigned int index, unsigned int *end)
 	if (is_format_specifier(str[index + (*end)]))
 		(*end)++;
 	return (ft_substr(str, index, *end));
-}
-
-// determine flags vs padding vs specifier
-//ASSUME SINGLE CHAR SPECIFIER
-
-int	print_from_legend(char *legend, va_list *list)
-{
-	char	specifier;
-	int		count;
-	int		flags;
-	int		i;
-
-	i = 0;
-	flags = 0;
-	specifier = legend[ft_strlen(legend) - 1];
-	if (!is_format_specifier(specifier))
-		return (0); //invalid input...
-	while (is_flag(legend[i]))
-	{
-		if (legend[i] == '0' && i == 0)
-			flags += is_flag(legend[i++]);
-		else if (legend[i] == '0' && ft_isdigit(legend[i - 1]))
-			i++;
-		else if (ft_isdigit(legend[i]))
-			i++;
-		else
-			flags += is_flag(legend[i++]);
-	}
-	count = handle_per_specifier(specifier, legend, flags, list);
-	return (count);
 }
