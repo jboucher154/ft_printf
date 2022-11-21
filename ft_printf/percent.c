@@ -6,18 +6,17 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:05:02 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/21 16:42:43 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/21 17:00:17 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include "includes/libft.h"
 
-
 static int	get_zpad(t_legend ****legend)
 {
 	int	z_pad;
-	
+
 	if ((***legend)->zero == 0)
 		return (0);
 	z_pad = (***legend)-> padding;
