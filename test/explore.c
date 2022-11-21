@@ -6,7 +6,7 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:28:43 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/18 16:58:27 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:03:47 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,27 +40,27 @@ int	main(void)
 
 //%o is printed as unsigned octal
 
-	printf("--Above values with FT_PUTCHAR_FD FT_PUTSTR_FD or FT_PUTNBR_FD--\n");
-	ft_putchar_fd(c, 0);
-	ft_putchar_fd('\n', 0);//
-	ft_putstr_fd(str, 0);
-	ft_putchar_fd('\n', 0);//
-	ft_putstr_fd(ptr, 0); //doesn't give address, prints the char
-	// ft_putchar_fd(ptr, 0); //dnc
-	// ft_putnbr_fd(ptr, 0);//dnc
-	ft_putchar_fd('\n', 0);//
-	ft_putnbr_fd(deci, 0);
-	ft_putchar_fd('\n', 0);//
-	ft_putnbr_fd(num, 0);
-	ft_putchar_fd('\n', 0);//
-	ft_putnbr_fd(udbl, 0);
-	ft_putchar_fd('\n', 0);//
-	ft_putnbr_fd(hex, 0);
-	ft_putchar_fd('\n', 0);//
-	ft_putchar_fd(hex, 0);
-	ft_putchar_fd('\n', 0);//
-	// ft_putstr_fd(hex, 0); //dnc
-	ft_putchar_fd('\n', 0);//
+	// printf("--Above values with FT_PUTCHAR_FD FT_PUTSTR_FD or FT_PUTNBR_FD--\n");
+	// ft_putchar_fd(c, 0);
+	// ft_putchar_fd('\n', 0);//
+	// ft_putstr_fd(str, 0);
+	// ft_putchar_fd('\n', 0);//
+	// ft_putstr_fd(ptr, 0); //doesn't give address, prints the char
+	// // ft_putchar_fd(ptr, 0); //dnc
+	// // ft_putnbr_fd(ptr, 0);//dnc
+	// ft_putchar_fd('\n', 0);//
+	// ft_putnbr_fd(deci, 0);
+	// ft_putchar_fd('\n', 0);//
+	// ft_putnbr_fd(num, 0);
+	// ft_putchar_fd('\n', 0);//
+	// ft_putnbr_fd(udbl, 0);
+	// ft_putchar_fd('\n', 0);//
+	// ft_putnbr_fd(hex, 0);
+	// ft_putchar_fd('\n', 0);//
+	// ft_putchar_fd(hex, 0);
+	// ft_putchar_fd('\n', 0);//
+	// // ft_putstr_fd(hex, 0); //dnc
+	// ft_putchar_fd('\n', 0);//
 
 	printf("--EXPLORATION OF PRINTF FLAGS, with printf--\n");
 
@@ -68,31 +68,31 @@ int	main(void)
 	//applicable forms: x, X (prepend 0x/0X to the result)
 	//no effect on: c, d, s, u
 	//other affect but not required for this project
-	printf("-- '#' flag--\n\n");
+	// printf("-- '#' flag--\n\n");
 	int	hex1 = 100;
-	printf("This is a lowercase hexadecimalwith #: %#x\n", hex1);
-	printf("This is a lowercase hexadecimalwith #6: %#6x\n", hex1);
-	printf("This is an uppercase hexadecimalwith #: %#X\n", hex1);
-	// printf("This is an int with #: %#i\n", hex1); //does not compile
-	printf("This is a lowercase hexadecimalwith 0#6: |%0#6x|\n", hex1);
-	printf("This is a lowercase hexadecimalwith 0#6: |%#06x|\n", hex1);
-	printf("This is a lowercase hexadecimalwith -#6: |%-#6x|\n", hex1);
-	printf("This is a lowercase hexadecimalwith #-6: |%#-6x|\n", hex1);
-	printf("This is a lowercase hexadecimalwith #.6: |%#.6x|\n", hex1);
-		printf("This is a lowercase hexadecimalwith #10.6: |%#10.6x|\n", hex1);
+	// printf("This is a lowercase hexadecimalwith #: %#x\n", hex1);
+	// printf("This is a lowercase hexadecimalwith #6: %#6x\n", hex1);
+	// printf("This is an uppercase hexadecimalwith #: %#X\n", hex1);
+	// // printf("This is an int with #: %#i\n", hex1); //does not compile
+	// printf("This is a lowercase hexadecimalwith 0#6: |%0#6x|\n", hex1);
+	// printf("This is a lowercase hexadecimalwith 0#6: |%#06x|\n", hex1);
+	// printf("This is a lowercase hexadecimalwith -#6: |%-#6x|\n", hex1);
+	// printf("This is a lowercase hexadecimalwith #-6: |%#-6x|\n", hex1);
+	// printf("This is a lowercase hexadecimalwith #.6: |%#.6x|\n", hex1);
+	// 	printf("This is a lowercase hexadecimalwith #10.6: |%#10.6x|\n", hex1);
 
 	//- 
 	//applicable forms: all
 	printf("\n-- '-' flag--\n\n");
-	printf("This is a char with -: %-c\n", c);
-	printf("This is a string with -: %-s\n", str);
-	printf("This is a pointer with -: %-p\n", ptr);
-	printf("This is a decimal with -: %-d\n", deci); //signed decimal i.e. int, assumes base 10
-	printf("This is an integer with -: %-i\n", num);//signed decimal, detects base...
-	printf("This is a unsigned int with -: %-u\n", udbl); //unsigned decimal
-	printf("This is a lowercase hexadecimal with -: %-x\n", hex); //print as unsgined hexadecimal xX
-	printf("This is an uppercase hexadecimal with -: %-X\n", hex);
-	printf("This is a percent sign with -: %-5%\n");
+	// printf("This is a char with -: %-c\n", c);
+	// printf("This is a string with -: %-s\n", str);
+	// printf("This is a pointer with -: %-p\n", ptr);
+	// printf("This is a decimal with -: %-d\n", deci); //signed decimal i.e. int, assumes base 10
+	// printf("This is an integer with -: %-i\n", num);//signed decimal, detects base...
+	// printf("This is a unsigned int with -: %-u\n", udbl); //unsigned decimal
+	// printf("This is a lowercase hexadecimal with -: %-x\n", hex); //print as unsgined hexadecimal xX
+	// printf("This is an uppercase hexadecimal with -: %-X\n", hex);
+	printf("This is a percent sign with -: |%-5%|\n");
 
 	printf("char only:  |%c|\n", c);
 	printf("-3 with a char:  |%-3c|\n", c);
@@ -106,15 +106,15 @@ int	main(void)
 	//applicable forms: signed formats
 	//no effect on: unsigned, hex, char/str
 	printf("\n-- '+' flag--\n\n");
-	// printf("This is a char with +: %+c\n", c); //does not compile
-	// printf("This is a string with +: %+s\n", str); //does not compile
-	// printf("This is a pointer with +: %+p\n", ptr); //does not compile
-	printf("This is a decimal with +: |%+d|\n", deci); //signed decimal i.e. int, assumes base 10
-	printf("This is a decimal with +6: |%+6d|\n", deci);
-	printf("This is an integer with +: |%+i|\n", num);//signed decimal, detects base...
-	printf("This is a negative integer with +: |%+i|\n", -85);
-	printf("This is an int sign with NO flag: |%i|\n", num);
-	printf("This is an int sign with NO flag: |%i|\n", -52);
+	// // printf("This is a char with +: %+c\n", c); //does not compile
+	// // printf("This is a string with +: %+s\n", str); //does not compile
+	// // printf("This is a pointer with +: %+p\n", ptr); //does not compile
+	// printf("This is a decimal with +: |%+d|\n", deci); //signed decimal i.e. int, assumes base 10
+	// printf("This is a decimal with +6: |%+6d|\n", deci);
+	// printf("This is an integer with +: |%+i|\n", num);//signed decimal, detects base...
+	// printf("This is a negative integer with +: |%+i|\n", -85);
+	// printf("This is an int sign with NO flag: |%i|\n", num);
+	// printf("This is an int sign with NO flag: |%i|\n", -52);
 	// printf("This is a unsigned int with +: %+u\n", udbl); //unsigned decimal //does not compile
 	// printf("This is a lowercase hexadecimal with +: %+x\n", hex); //print as unsgined hexadecimal xX//does not compile
 	// printf("This is an uppercase hexadecimal with +: %+X\n", hex); //does not compile
@@ -156,47 +156,47 @@ int	main(void)
 	// '-' padding overrides a 0 if both present
 	printf("\n-- '0' flag--\n\n");
 	// printf("This is a char with 0: %0c\n", c); //does not compile
-	// printf("This is a string with 0: %0s\n", str);//does not compile
-	// printf("This is a pointer with 0: %0p\n", ptr);//does not compile
-	printf("This is a decimal with 0: |%02d|\n", deci); //signed decimal i.e. int, assumes base 10
-	printf("This is an integer with 0: |%02i|\n", num);//signed decimal, detects base...
-	printf("This is an integer with 0: |%02i|\n", -42);//
-	printf("This is a unsigned int with 0: |%02u|\n", udbl); //unsigned decimal
-	printf("This is a lowercase hexadecimal with 0: |%02x|\n", hex); //print as unsgined hexadecimal xX
-	printf("This is an uppercase hexadecimal with 0: |%02X|\n", hex);
-	printf("This is a percent sign with 0: |%02%|\n");
-	printf("WITH 5 PADDING");
-	printf("This is a decimal with 0: |%05d|\n", deci); //signed decimal i.e. int, assumes base 10
-	printf("This is an integer with 0: |%05i|\n", num);//signed decimal, detects base...
-	printf("This is an integer with 0: |%05i|\n", -42);//
-	printf("This is a unsigned int with 0: |%05u|\n", udbl); //unsigned decimal
-	printf("This is a lowercase hexadecimal with 0: |%05x|\n", hex); //print as unsgined hexadecimal xX
-	printf("This is an uppercase hexadecimal with 0: |%05X|\n", hex);
+	// // printf("This is a string with 0: %0s\n", str);//does not compile
+	// // printf("This is a pointer with 0: %0p\n", ptr);//does not compile
+	// printf("This is a decimal with 0: |%02d|\n", deci); //signed decimal i.e. int, assumes base 10
+	// printf("This is an integer with 0: |%02i|\n", num);//signed decimal, detects base...
+	// printf("This is an integer with 0: |%02i|\n", -42);//
+	// printf("This is a unsigned int with 0: |%02u|\n", udbl); //unsigned decimal
+	// printf("This is a lowercase hexadecimal with 0: |%02x|\n", hex); //print as unsgined hexadecimal xX
+	// printf("This is an uppercase hexadecimal with 0: |%02X|\n", hex);
+	// printf("This is a percent sign with 0: |%02%|\n");
+	// printf("WITH 5 PADDING");
+	// printf("This is a decimal with 0: |%05d|\n", deci); //signed decimal i.e. int, assumes base 10
+	// printf("This is an integer with 0: |%05i|\n", num);//signed decimal, detects base...
+	// printf("This is an integer with 0: |%05i|\n", -42);//
+	// printf("This is a unsigned int with 0: |%05u|\n", udbl); //unsigned decimal
+	// printf("This is a lowercase hexadecimal with 0: |%05x|\n", hex); //print as unsgined hexadecimal xX
+	// printf("This is an uppercase hexadecimal with 0: |%05X|\n", hex);
 	printf("This is a percent sign with 0: |%05%|\n");
 
 	//.
 	//applicable forms: all, dnc with char and ptr
 	printf("\n-- '.' flag with 3 --\n\n");
-	// printf("This is a char with .: %.3c\n", c); //does not compile
-	printf("This is a string with .3: |%.3s|\n", str); //prints frist 3 chars
-	printf("This is a string with .3: |%.8s|\n", str); //prints frist 3 chars
-	printf("This is a string with 3.: |%3.s|\n", str); //prints frist 3 chars
-	printf("This is a string with 3.3: |%3.3s|\n", str); //prints frist 3 chars
-	printf("This is a string with . and NO 3: |%.s|\n", str); //prints frist 3 chars
-	// printf("This is a pointer with .: %.3p\n", ptr); //does not compile
-	printf("This is a decimal with .3: |%.3d|\n", deci); //signed decimal i.e. int, assumes base 10
-	printf("This is a decimal with 3.: |%3.d|\n", deci); 
-	printf("This is an integer with .: |%3.i|\n", num);//signed decimal, detects base...
-	printf("This is an integer with .: |%.3i|\n", -42);//
-	printf("This is an integer with . and NO 3: |%.i|\n", -42);//
+	// // printf("This is a char with .: %.3c\n", c); //does not compile
+	// printf("This is a string with .3: |%.3s|\n", str); //prints frist 3 chars
+	// printf("This is a string with .3: |%.8s|\n", str); //prints frist 3 chars
+	// printf("This is a string with 3.: |%3.s|\n", str); //prints frist 3 chars
+	// printf("This is a string with 3.3: |%3.3s|\n", str); //prints frist 3 chars
+	// printf("This is a string with . and NO 3: |%.s|\n", str); //prints frist 3 chars
+	// // printf("This is a pointer with .: %.3p\n", ptr); //does not compile
+	// printf("This is a decimal with .3: |%.3d|\n", deci); //signed decimal i.e. int, assumes base 10
+	// printf("This is a decimal with 3.: |%3.d|\n", deci); 
+	// printf("This is an integer with .: |%3.i|\n", num);//signed decimal, detects base...
+	// printf("This is an integer with .: |%.3i|\n", -42);//
+	// printf("This is an integer with . and NO 3: |%.i|\n", -42);//
 
-	printf("This is an integer with .3: |%.5i|\n", -42);//
-	printf("This is an integer with 3.: |%5.i|\n", -42);//
-	printf("This is an integer with 3.3: |%5.5i|\n", -42);
+	// printf("This is an integer with .3: |%.5i|\n", -42);//
+	// printf("This is an integer with 3.: |%5.i|\n", -42);//
+	// printf("This is an integer with 3.3: |%5.5i|\n", -42);
 
-	printf("This is a unsigned int with .: |%.3u|\n", udbl); //unsigned decimal
-	printf("This is a lowercase hexadecimal with .: |%.3x|\n", hex); //print as unsgined hexadecimal xX
-	printf("This is an uppercase hexadecimal with .: |%.3X|\n", hex);
+	// printf("This is a unsigned int with .: |%.3u|\n", udbl); //unsigned decimal
+	// printf("This is a lowercase hexadecimal with .: |%.3x|\n", hex); //print as unsgined hexadecimal xX
+	// printf("This is an uppercase hexadecimal with .: |%.3X|\n", hex);
 	printf("This is a percent sign with .: |%.3%|\n");
 
 
@@ -226,53 +226,53 @@ int	main(void)
 
 	printf("\n-- '0' and '.' tgether flag with 4 --\n\n"); //DNC for ALL!!!!!! except the % sign....
 
-	// printf("This is a string with -: %0.s\n", str); //DNC
-	printf("This is a decimal with 0 .: |%0.4d|\n", deci); //signed decimal i.e. int, assumes base 10
-	printf("This is a decimal with 05.4: |%05.4d|\n", deci);
-	printf("This is an integer with 0 .: |%0.4i|\n", num);//signed decimal, detects base...
-	printf("This is an integer with 0 .: |%0.4i|\n", -42);//
-	printf("This is a unsigned int with 0 .: |%0.4u|\n", udbl); //unsigned decimal
-	printf("This is a unsigned int with 09.6: |%09.6u|\n", udbl); //unsigned decimal
-	printf("This is a unsigned int with 06.9: |%06.9u|\n", udbl);
-	printf("This is a unsigned int with 06.6: |%06.6u|\n", udbl);
-	printf("This is a lowercase hexadecimal with 0 .: |%0.4x|\n", hex); //print as unsgined hexadecimal xX
-	printf("This is an uppercase hexadecimal with 0 .: |%0.4X|\n", hex);
-	printf("This is an uppercase hexadecimal with . 0: |%.04X|\n", hex);
-	printf("This is a percent sign with 0 .: |%0.4%|\n");
-	printf("WITH no PADDING specified");
-	printf("This is a decimal with 0: |%0.d|\n", deci); //signed decimal i.e. int, assumes base 10
-	printf("This is an integer with 0: |%0.i|\n", num);//signed decimal, detects base...
-	printf("This is an integer with 0: |%0.i|\n", -42);//
-	printf("This is a unsigned int with 0: |%0.u|\n", udbl); //unsigned decimal
-	printf("This is a lowercase hexadecimal with 0: |%0.x|\n", hex); //print as unsgined hexadecimal xX
-	printf("This is an uppercase hexadecimal with 0: |%0.X|\n", hex);
-	printf("This is a percent sign with 0: |%0.%|\n");
+	//// printf("This is a string with -: %0.s\n", str); //DNC
+	// printf("This is a decimal with 0 .: |%0.4d|\n", deci); //signed decimal i.e. int, assumes base 10
+	// printf("This is a decimal with 05.4: |%05.4d|\n", deci);
+	// printf("This is an integer with 0 .: |%0.4i|\n", num);//signed decimal, detects base...
+	// printf("This is an integer with 0 .: |%0.4i|\n", -42);//
+	// printf("This is a unsigned int with 0 .: |%0.4u|\n", udbl); //unsigned decimal
+	// printf("This is a unsigned int with 09.6: |%09.6u|\n", udbl); //unsigned decimal
+	// printf("This is a unsigned int with 06.9: |%06.9u|\n", udbl);
+	// printf("This is a unsigned int with 06.6: |%06.6u|\n", udbl);
+	// printf("This is a lowercase hexadecimal with 0 .: |%0.4x|\n", hex); //print as unsgined hexadecimal xX
+	// printf("This is an uppercase hexadecimal with 0 .: |%0.4X|\n", hex);
+	// printf("This is an uppercase hexadecimal with . 0: |%.04X|\n", hex);
+	// printf("This is a percent sign with 0 .: |%0.4%|\n");
+	// printf("WITH no PADDING specified");
+	// printf("This is a decimal with 0: |%0.d|\n", deci); //signed decimal i.e. int, assumes base 10
+	// printf("This is an integer with 0: |%0.i|\n", num);//signed decimal, detects base...
+	// printf("This is an integer with 0: |%0.i|\n", -42);//
+	// printf("This is a unsigned int with 0: |%0.u|\n", udbl); //unsigned decimal
+	// printf("This is a lowercase hexadecimal with 0: |%0.x|\n", hex); //print as unsgined hexadecimal xX
+	// printf("This is an uppercase hexadecimal with 0: |%0.X|\n", hex);
+	printf("This is a percent sign with 04.4: |%06.4%|\n");
 
 
 	printf("\n-- '-' and '.' tgether flag with 4 --\n\n"); //DNC for ALL!!!!!! except the % sign....
 
-	printf("This is a string with -.6: |%-.6s|\n", str); 
-	printf("This is a string with -9.4:|%-9.4s|\n", str); 
-	printf("This is a string with -4.9:|%-4.9s|\n", str); 
-	printf("This is a decimal with - .: |%-.4d|\n", deci); //signed decimal i.e. int, assumes base 10
-	printf("This is a decimal with -9.4: |%-9.4d|\n", deci);
-	printf("This is a decimal with -9.1: |%-9.1d|\n", 452);
-	printf("This is an integer with - .: |%-.4i|\n", num);//signed decimal, detects base...
-	printf("This is an integer with - .: |%-.4i|\n", -42);//
-	printf("This is a unsigned int with - .: |%-.4u|\n", udbl); //unsigned decimal
-	printf("This is a lowercase hexadecimal with - .: |%-.4x|\n", hex); //print as unsgined hexadecimal xX
-	// printf("This is an uppercase hexadecimal with . -: |%.-4X|\n", hex); invalid specifer????
-	printf("This is a string with -.: %-.s\n", str); //DNC
-	printf("This is an uppercase hexadecimal with - .: |%-.4X|\n", hex);
-	printf("This is a percent sign with - .: |%-.4%|\n");
-	printf("WITH no PADDING specified");
-	printf("This is a decimal with . -: |%-.d|\n", deci); //signed decimal i.e. int, assumes base 10
-	printf("This is an integer with .-: |%-.i|\n", num);//signed decimal, detects base...
-	printf("This is an integer with . -: |%-.i|\n", -42);//
-	printf("This is a unsigned int with . -: |%-.u|\n", udbl); //unsigned decimal
-	printf("This is a lowercase hexadecimal with . -: |%-.x|\n", hex); //print as unsgined hexadecimal xX
-	printf("This is an uppercase hexadecimal with  .-: |%-.X|\n", hex);
-	printf("This is a percent sign with .-: |%-.%|\n");
+	// printf("This is a string with -.6: |%-.6s|\n", str); 
+	// printf("This is a string with -9.4:|%-9.4s|\n", str); 
+	// printf("This is a string with -4.9:|%-4.9s|\n", str); 
+	// printf("This is a decimal with - .: |%-.4d|\n", deci); //signed decimal i.e. int, assumes base 10
+	// printf("This is a decimal with -9.4: |%-9.4d|\n", deci);
+	// printf("This is a decimal with -9.1: |%-9.1d|\n", 452);
+	// printf("This is an integer with - .: |%-.4i|\n", num);//signed decimal, detects base...
+	// printf("This is an integer with - .: |%-.4i|\n", -42);//
+	// printf("This is a unsigned int with - .: |%-.4u|\n", udbl); //unsigned decimal
+	// printf("This is a lowercase hexadecimal with - .: |%-.4x|\n", hex); //print as unsgined hexadecimal xX
+	// // printf("This is an uppercase hexadecimal with . -: |%.-4X|\n", hex); invalid specifer????
+	// printf("This is a string with -.: %-.s\n", str); //DNC
+	// printf("This is an uppercase hexadecimal with - .: |%-.4X|\n", hex);
+	// printf("This is a percent sign with - .: |%-.4%|\n");
+	// printf("WITH no PADDING specified");
+	// printf("This is a decimal with . -: |%-.d|\n", deci); //signed decimal i.e. int, assumes base 10
+	// printf("This is an integer with .-: |%-.i|\n", num);//signed decimal, detects base...
+	// printf("This is an integer with . -: |%-.i|\n", -42);//
+	// printf("This is a unsigned int with . -: |%-.u|\n", udbl); //unsigned decimal
+	// printf("This is a lowercase hexadecimal with . -: |%-.x|\n", hex); //print as unsgined hexadecimal xX
+	// printf("This is an uppercase hexadecimal with  .-: |%-.X|\n", hex);
+	printf("This is a percent sign with -6.4: |%-6.4%|\n");
 
 	printf("\n-- '-' '.' ' 0' together flag with 4 --\n\n"); //DNC for ALL!!!!!! except the % sign....
 
@@ -287,7 +287,7 @@ int	main(void)
 	// printf("This is an uppercase hexadecimal with : |%0-.4X|\n", hex);
 	printf("This is a percent sign with : |%0-.4%|\n");
 	printf("This is a percent sign with 0-8.4: |%0-8.4%|\n");
-	printf("This is a percent sign with 0-8.: |%0-8.%|\n");
+	printf("This is a percent sign with 0-8.: |%00-8%|\n");
 	// printf("WITH no PADDING specified");
 	// printf("This is a decimal with : |%-.0d|\n", deci); //--> evals to -. flag with  secified padding
 	// printf("This is an integer with : |%0-.i|\n", num);//signed decimal, detects base...

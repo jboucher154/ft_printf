@@ -6,7 +6,7 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:00:46 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/18 17:35:09 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:13:49 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,21 @@ int	print_flag_char(char c, int repeat)
 		ft_putchar_fd(c, 0);
 		i++;
 	}
+	if (repeat < 0)
+		return (0);
 	return (repeat);
 }
 
 void	check_ignores(t_legend ****legend)
 {
+	if ((***legend)->specifier == '%')
+	{
+		(***legend)->space = 0;
+		(***legend)->plus = 0;
+		(***legend)->hash = 0;
+		(***legend)->period[0] = 0;
+		return ;
+	}
 	if ((***legend)->dash[0] == 1 || (***legend)->period[0] == 1)
 	{
 		(***legend)->zero = 0;
@@ -51,4 +61,12 @@ void	check_ignores(t_legend ****legend)
 	{
 		(***legend)->space = 0;
 	}
+}
+
+int	is_flag(char c)
+{
+	if (c == '-' || c == '0' || c == '.' || c == '#' || c == ' ' || c == '+')
+		return (1);
+	else
+		return (0);
 }

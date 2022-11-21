@@ -6,23 +6,19 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:17:45 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/18 17:44:40 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:50:21 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include "includes/libft.h"
 
-// int	print_char(t_legend *legend, va_list *list);
-// int	print_percent(t_legend *legend, va_list *list);
-// int	print_string(t_legend *legend, va_list *list);
-
-int	print_char(t_legend ***legend, va_list *list) //flags affecting: '-', field width not recognized...
+int	print_char(t_legend ***legend, va_list *list)
 {
 	int	padding;
 	int	count;
 
-	count= 0;
+	count = 0;
 	padding = (**legend)->padding;
 	if ((**legend)->dash[0] == 1)
 	{
@@ -40,9 +36,24 @@ int	print_char(t_legend ***legend, va_list *list) //flags affecting: '-', field 
 	return (count);
 }
 
-//
+int	with_dash(t_legend ****leg, int len, char *str, int *i)
+{
+	int	count;
 
-int	print_string(t_legend ***legend, va_list *list) //flags affecting: '-', '.', '-.' '.-'
+	count = 0;
+	(***leg)->dash[1] -= len;
+	while (i < len)
+	{
+		ft_putchar_fd(str[*i], 0);
+		count++;
+		(*i)++;
+	}
+	if ((***leg)->dash[1] > 0)
+		count += print_flag_char(' ', (***leg)->dash[1]);
+	return (count);
+}
+
+int	print_string(t_legend ***legend, va_list *list)
 {
 	char	*str;
 	int		len;
@@ -56,17 +67,7 @@ int	print_string(t_legend ***legend, va_list *list) //flags affecting: '-', '.',
 	if (len > (**legend)->period[1] && (**legend)->period[0] == 1)
 		len = (**legend)->period[1];
 	if ((**legend)->dash[0])
-	{
-		(**legend)->dash[1] -= len;
-		while (i < len)
-		{
-			ft_putchar_fd(str[i], 0);
-			count++;
-			i++;
-		}
-		if ((**legend)->dash[1] > 0)
-			count += print_flag_char(' ', (**legend)->dash[1]);
-	}
+		count += with_dash(&legend, len, str, &i);
 	else
 	{
 		count += print_flag_char(' ', (**legend)->padding);
@@ -79,8 +80,3 @@ int	print_string(t_legend ***legend, va_list *list) //flags affecting: '-', '.',
 	}
 	return (count);
 }
-
-// int	print_percent(t_legend **legend, va_list *list) //flags affecting: '0', '-0', '0-'
-// {
-// 	return (0);
-// }
