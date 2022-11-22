@@ -6,11 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:05:49 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/17 16:50:43 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:47:24 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 static	int	get_length(int strlen, int start, int len)
 {

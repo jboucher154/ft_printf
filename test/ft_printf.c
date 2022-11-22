@@ -6,13 +6,13 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 17:02:39 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 16:47:11 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:05:40 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// #include <stdio.h> //remove
+#include <stdio.h> //remove
 
 static void	print_out(const char *str, unsigned int i, va_list *lst, int *c)
 {
@@ -53,7 +53,6 @@ int	ft_printf(const char *input, ...)
 	}
 	return (printed);
 }
-
 
 // int	main(void)
 // {

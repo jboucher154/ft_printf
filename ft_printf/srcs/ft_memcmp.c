@@ -6,11 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 11:47:22 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/17 16:49:01 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:45:43 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

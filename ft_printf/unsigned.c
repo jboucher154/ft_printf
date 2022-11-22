@@ -6,28 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:27:08 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/21 16:56:23 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:07:33 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include "includes/libft.h"
-
-static int	get_zpad(t_legend ****legend, int len)
-{
-	int	z_pad;
-
-	if ((***legend)->period[0] == 0 && (***legend)->zero == 0)
-		return (0);
-	z_pad = (***legend)-> padding;
-	if ((***legend)->period[0] == 1)
-		z_pad = (***legend)->period[1];
-	if (z_pad < len)
-		z_pad = 0;
-	else
-		z_pad -= len;
-	return (z_pad);
-}
+#include "ft_printf.h"
 
 static void	put_unsigned(unsigned long num)
 {
@@ -38,7 +21,7 @@ static void	put_unsigned(unsigned long num)
 	}
 	else
 	{
-		ft_putchar_fd(num + 48, 0);
+		ft_putchar_fd(num + 48, 1);
 	}
 }
 
@@ -47,6 +30,7 @@ static int	print_pad_n_un(t_legend ****legend, int len, int num, int z_pad)
 	int		sp_pad;
 	int		count;
 
+	count = 0;
 	if ((***legend)->padding > 0 && (***legend)->zero == 0)
 	{
 		sp_pad = (***legend)->padding - (len + z_pad);
@@ -69,7 +53,6 @@ int	print_unsigned(t_legend ***legend, va_list *list)
 	int				len;
 
 	num = va_arg(*list, unsigned int);
-	check_ignores(&legend);
 	len = get_num_len_u(num, 10);
 	z_pad = get_zpad(&legend, len);
 	count = print_pad_n_un(&legend, len, num, z_pad);

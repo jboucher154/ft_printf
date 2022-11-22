@@ -6,11 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:50:58 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/17 16:48:53 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:45:18 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 static int	get_num_len(long int n)
 {

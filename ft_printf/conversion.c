@@ -6,12 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:28:31 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/21 16:51:01 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 13:15:36 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include "includes/libft.h"
+#include "ft_printf.h"
 
 static char	*get_legend(const char *str, unsigned int index, unsigned int *end)
 {
@@ -22,18 +21,22 @@ static char	*get_legend(const char *str, unsigned int index, unsigned int *end)
 	return (ft_substr(str, index, *end));
 }
 
-int	convert_print(const char *str, unsigned int index, va_list *lst, int *count)
+int	convert_print(const char *str, unsigned int i, va_list *lst, int **count)
 {
 	unsigned int	end;
 	char			*s_leg;
 	t_legend		*leg;
 
 	end = 0;
-	s_leg = get_legend(str, index, &end);
+	s_leg = get_legend(str, i, &end);
 	leg = new_legend();
-	fill_legend(s_leg, &leg);
-	handle_per_specifier(&leg, lst);
+	if (leg)
+	{
+		fill_legend(s_leg, &leg);
+		check_ignores(&leg);
+		**count += handle_per_specifier(&leg, lst);
+	}
 	free(leg);
 	free (s_leg);
-	return (index + end);
+	return (i + end);
 }

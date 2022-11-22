@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   convert1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 16:33:12 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 11:46:13 by jebouche         ###   ########.fr       */
+/*   Created: 2022/11/22 13:52:53 by jebouche          #+#    #+#             */
+/*   Updated: 2022/11/22 14:18:52 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+static char	get_speci(const char *str, unsigned int index)
 {
-	int	i;
+	if (is_format_specifier(str[index]))
+		return (str[index]);
+	return (0);
+}
 
-	i = 0;
-	while (s && s[i] != '\0')
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+int	convert_print(const char *str, unsigned int i, va_list *lst, int **count)
+{
+	char	s_leg;
+
+	s_leg = get_speci(str, i);
+	if (s_leg)
+		**count += handle_per_specifier(s_leg, lst);
+	return (i + 1);
 }

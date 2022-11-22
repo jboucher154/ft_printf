@@ -6,11 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:45:26 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/17 12:28:51 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:46:09 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

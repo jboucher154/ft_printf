@@ -6,12 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:53:58 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/21 16:55:24 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:48:57 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include "includes/libft.h"
+#include "ft_printf.h"
 
 int	check_num(const char *str, int *index)
 {

@@ -6,24 +6,23 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:00:46 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/21 16:13:49 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:06:43 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include "includes/libft.h"
+#include "ft_printf.h"
 
 int	apply_hex_prefix(char s)
 {
 	if (s == 'X')
 	{
-		ft_putchar_fd('0', 0);
-		ft_putchar_fd('X', 0);
+		ft_putchar_fd('0', 1);
+		ft_putchar_fd('X', 1);
 	}
 	else
 	{
-		ft_putchar_fd('0', 0);
-		ft_putchar_fd('x', 0);
+		ft_putchar_fd('0', 1);
+		ft_putchar_fd('x', 1);
 	}
 	return (2);
 }
@@ -35,7 +34,7 @@ int	print_flag_char(char c, int repeat)
 	i = 0;
 	while (i < repeat)
 	{
-		ft_putchar_fd(c, 0);
+		ft_putchar_fd(c, 1);
 		i++;
 	}
 	if (repeat < 0)
@@ -43,24 +42,30 @@ int	print_flag_char(char c, int repeat)
 	return (repeat);
 }
 
-void	check_ignores(t_legend ****legend)
+void	check_ignores(t_legend **legend)
 {
-	if ((***legend)->specifier == '%')
+	if ((*legend)->specifier == '%')
 	{
-		(***legend)->space = 0;
-		(***legend)->plus = 0;
-		(***legend)->hash = 0;
-		(***legend)->period[0] = 0;
+		(*legend)->space = 0;
+		(*legend)->plus = 0;
+		(*legend)->hash = 0;
+		(*legend)->period[0] = 0;
 		return ;
 	}
-	if ((***legend)->dash[0] == 1 || (***legend)->period[0] == 1)
+	if ((*legend)->dash[0] == 1 || (*legend)->period[0] == 1)
+		(*legend)->zero = 0;
+	if ((*legend)->dash[0] == 1)
 	{
-		(***legend)->zero = 0;
+		if ((*legend)->dash[1] == 0)
+		{
+			(*legend)->dash[1] = (*legend)->padding;
+			(*legend)->padding = 0;
+		}
+		else
+			(*legend)->padding = 0;
 	}
-	if ((***legend)->plus == 1)
-	{
-		(***legend)->space = 0;
-	}
+	if ((*legend)->plus == 1)
+		(*legend)->space = 0;
 }
 
 int	is_flag(char c)

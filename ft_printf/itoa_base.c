@@ -6,25 +6,29 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 13:35:13 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/21 16:53:46 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:58:46 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include "includes/libft.h"
+#include "ft_printf.h"
 
 int	get_num_len_u(unsigned long n, int base)
 {
-	int	i;
+	unsigned long	i;
+	unsigned long	ub;
 
 	i = 0;
-	if (n < base)
+	if (base > 0)
+		ub = (unsigned long) base;
+	else
+		return (0);
+	if (n < ub)
 		i++;
 	else
 	{
-		while (n >= base)
+		while (n >= ub)
 		{
-			n = n / base;
+			n = n / ub;
 			i++;
 		}
 	}

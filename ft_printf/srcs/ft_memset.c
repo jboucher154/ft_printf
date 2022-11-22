@@ -6,11 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 11:47:51 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/17 16:49:12 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:45:56 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 void	*ft_memset(void	*b, int c, size_t len)
 {

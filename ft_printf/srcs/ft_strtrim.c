@@ -6,11 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 11:49:36 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/17 16:50:39 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:47:14 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 static int	get_start(char const *s1, char const *set)
 {

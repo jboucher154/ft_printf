@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   char1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 16:33:12 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 11:46:13 by jebouche         ###   ########.fr       */
+/*   Created: 2022/11/22 13:51:54 by jebouche          #+#    #+#             */
+/*   Updated: 2022/11/22 15:56:59 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	print_char1(va_list *list)
 {
-	int	i;
-
-	i = 0;
-	while (s && s[i] != '\0')
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+	ft_putchar_fd(va_arg(*list, int), 1);
+	return (1);
 }
+

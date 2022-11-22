@@ -6,12 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:56:06 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/21 16:56:10 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:49:27 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include "includes/libft.h"
+#include "ft_printf.h"
 
 t_legend	*new_legend(void)
 {

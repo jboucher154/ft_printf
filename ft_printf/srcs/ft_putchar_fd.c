@@ -6,11 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:23:43 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/17 12:28:08 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:46:01 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

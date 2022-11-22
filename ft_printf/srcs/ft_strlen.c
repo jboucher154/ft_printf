@@ -6,11 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 11:49:00 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/17 16:50:04 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 11:46:51 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

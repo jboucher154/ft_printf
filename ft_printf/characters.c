@@ -6,12 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:17:45 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/21 16:50:21 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:18:31 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include "includes/libft.h"
+#include "ft_printf.h"
 
 int	print_char(t_legend ***legend, va_list *list)
 {
@@ -23,14 +22,14 @@ int	print_char(t_legend ***legend, va_list *list)
 	if ((**legend)->dash[0] == 1)
 	{
 		padding = (**legend)->dash[1];
-		ft_putchar_fd(va_arg(*list, int), 0);
+		ft_putchar_fd(va_arg(*list, int), 1);
 		count += print_flag_char(' ', padding - 1) + 1;
 	}
 	else
 	{
 		if (padding > 0)
 			count = print_flag_char(' ', padding - 1) + 1;
-		ft_putchar_fd(va_arg(*list, int), 0);
+		ft_putchar_fd(va_arg(*list, int), 1);
 		count++;
 	}
 	return (count);
@@ -42,13 +41,13 @@ int	with_dash(t_legend ****leg, int len, char *str, int *i)
 
 	count = 0;
 	(***leg)->dash[1] -= len;
-	while (i < len)
+	while (*i < len)
 	{
-		ft_putchar_fd(str[*i], 0);
+		ft_putchar_fd(str[*i], 1);
 		count++;
 		(*i)++;
 	}
-	if ((***leg)->dash[1] > 0)
+	if ((***leg)->dash[1] > 1)
 		count += print_flag_char(' ', (***leg)->dash[1]);
 	return (count);
 }
@@ -73,7 +72,7 @@ int	print_string(t_legend ***legend, va_list *list)
 		count += print_flag_char(' ', (**legend)->padding);
 		while (i < len)
 		{
-			ft_putchar_fd(str[i], 0);
+			ft_putchar_fd(str[i], 1);
 			count++;
 			i++;
 		}
