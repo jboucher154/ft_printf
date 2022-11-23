@@ -6,7 +6,7 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 17:04:26 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 16:47:54 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/23 09:56:16 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include "./srcs/libft.h"
+# include "./libft/libft.h"
 
 typedef struct s_legend
 {

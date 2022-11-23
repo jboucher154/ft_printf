@@ -6,7 +6,7 @@
 #    By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 16:53:06 by jebouche          #+#    #+#              #
-#    Updated: 2022/11/22 17:12:41 by jebouche         ###   ########.fr        #
+#    Updated: 2022/11/23 09:59:50 by jebouche         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,24 +30,20 @@ CFLAGS = -Wall -Werror -Wextra $(DEPS)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIB)
-		mv $(LIB) $(NAME)
+$(NAME): $(OBJS)
+		$(MAKE) -C libft	
+		cp ./libft/$(LIB) ./$(NAME)
 		ar -rucs $(NAME) $(OBJS)
 
 $(OBJS): $(SRCS)
 		$(CC) $(CFLAGS) -c $(SRCS)
 
-$(LIB):
-		$(MAKE) -C srcs
-		cp -r srcs/$(LIB) .
-
 clean:
 		rm -f $(OBJS)
-		$(MAKE) clean -C srcs
+		$(MAKE) fclean -C libft
 
 fclean: clean
 		rm -f $(NAME)
-		$(MAKE) fclean -C srcs
 
 re: fclean all
 
