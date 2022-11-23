@@ -6,7 +6,7 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 17:04:26 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/23 10:59:12 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:41:42 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include "./libft/libft.h"
-# include <limits.h>
+# include "./srcs/libft.h"
 
 typedef struct s_legend
 {
@@ -32,9 +31,9 @@ typedef struct s_legend
 t_legend	*new_legend(void);
 
 //test
-// int			print_char1(va_list *list);
-// int			convert_print(const char *str, unsigned int i, va_list *lst, int **count);
-// int	handle_per_specifier(char speci, va_list *list);
+int			print_char1(va_list *list);
+int			convert_print(const char *str, unsigned int i, va_list *lst, int **count);
+int			handle_per_specifier(char speci, va_list *list);
 
 //ftprintf
 int			ft_printf(const char *input, ...);
@@ -43,14 +42,13 @@ int			ft_printf(const char *input, ...);
 int			convert_print(const char *s, unsigned int i, va_list *lst, int **c);
 
 //handle_specifiers
-int			handle_per_specifier(t_legend **legend, va_list *list);
+// int			handle_per_specifier(t_legend **legend, va_list *list);
 int			is_format_specifier(char c);
 
 //characters
 int			print_char(t_legend ***legend, va_list *list);
 int			print_percent(t_legend ***legend);
 int			print_string(t_legend ***legend, va_list *list);
-int			print_null(void);
 
 //numbers
 int			print_int_dec(t_legend ***legend, va_list *list);

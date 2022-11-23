@@ -6,7 +6,7 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:12:14 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 16:07:14 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/23 18:48:56 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,24 @@ static int	get_num_len(long int n)
 	return (i);
 }
 
-static int	print_sign(int plus, int *num)
+static int	print_sign(int plus, long int *num)
 {
 	int	count;
 
 	count = 0;
-	if (plus == 1 && *num > 0)
+	if (*num == INT_MIN)//
+		return (1);
+	if (plus == 1 && *num >= 0)
 		count += print_flag_char('+', 1);
 	else if (*num < 0)
 	{
 		count += print_flag_char('-', 1);
-		(*num) *= -1;
+		(*num) = (*num) * -1;
 	}
 	return (count);
 }
 
-int	print_pad_n_num(t_legend ****legend, int len, int num, int z_pad)
+int	print_pad_n_num(t_legend ****legend, int len, long int num, int z_pad)
 {
 	int		sp_pad;
 	int		count;
@@ -65,9 +67,9 @@ int	print_pad_n_num(t_legend ****legend, int len, int num, int z_pad)
 		sp_pad = (***legend)->padding - (flag_holder + len + z_pad);
 		count += print_flag_char(' ', sp_pad);
 	}
-	count += print_sign((***legend)->plus, &num);
-	if ((***legend)->space == 1 && num > 0)
+	if ((***legend)->space == 1 && num >= 0)
 		count += print_flag_char(' ', 1);
+	count += print_sign((***legend)->plus, &num);
 	count += print_flag_char('0', (z_pad));
 	ft_putnbr_fd(num, 1);
 	count += len;
@@ -79,17 +81,19 @@ int	print_pad_n_num(t_legend ****legend, int len, int num, int z_pad)
 
 int	print_int_dec(t_legend ***legend, va_list *list)
 {
-	int	count;
-	int	num;
-	int	z_pad;
-	int	len;
+	int			count;
+	long int	num;
+	int			z_pad;
+	int			len;
 
-	num = va_arg(*list, int);
+	num = (long int) va_arg(*list, int);
 	if (num < 0)
 		len = get_num_len(num * -1);
 	else
 		len = get_num_len(num);
 	z_pad = get_zpad(&legend, len);
+	if ((**legend)->zero == 1 && num < 0)
+		z_pad--;
 	count = print_pad_n_num(&legend, len, num, z_pad);
 	return (count);
 }

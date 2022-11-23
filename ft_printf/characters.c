@@ -6,7 +6,7 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:17:45 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 16:18:31 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:08:42 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,15 @@ int	with_dash(t_legend ****leg, int len, char *str, int *i)
 		count++;
 		(*i)++;
 	}
-	if ((***leg)->dash[1] > 1)
+	if ((***leg)->dash[1] >= 1)//
 		count += print_flag_char(' ', (***leg)->dash[1]);
 	return (count);
+}
+
+int	print_null(void)
+{
+	ft_putstr_fd("(null)", 1);
+	return (6);
 }
 
 int	print_string(t_legend ***legend, va_list *list)
@@ -62,6 +68,8 @@ int	print_string(t_legend ***legend, va_list *list)
 	count = 0;
 	i = 0;
 	str = va_arg(*list, char *);
+	if (!str)
+		return (print_null());
 	len = ft_strlen(str);
 	if (len > (**legend)->period[1] && (**legend)->period[0] == 1)
 		len = (**legend)->period[1];
@@ -72,9 +80,8 @@ int	print_string(t_legend ***legend, va_list *list)
 		count += print_flag_char(' ', (**legend)->padding);
 		while (i < len)
 		{
-			ft_putchar_fd(str[i], 1);
+			ft_putchar_fd(str[i++], 1);//changed++
 			count++;
-			i++;
 		}
 	}
 	return (count);

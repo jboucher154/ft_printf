@@ -6,7 +6,7 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:58:43 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 16:07:09 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/23 15:54:46 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,16 @@ int	print_hex(t_legend ***legend, va_list *list)
 	int		z_pad;
 
 	count = 0;
-	hex_str = ft_itoa_ubase(va_arg(*list, unsigned long), 16);
+	if ((**legend)->specifier == 'p')
+		hex_str = ft_itoa_ubase(va_arg(*list, unsigned long), 16);
+	else
+		hex_str = ft_itoa_ubase(va_arg(*list, unsigned int), 16);
 	if ((**legend)->specifier == 'X')
 		hex_to_caps(&hex_str);
 	len = ft_strlen(hex_str);
 	z_pad = get_zpad(&legend, len);
+	if (ft_strncmp(hex_str, "0", len) == 0 && (**legend)->specifier != 'p')
+		(**legend)->hash = 0;
 	count += print_pad_n_string(&legend, len, hex_str, z_pad);
 	free (hex_str);
 	return (count);

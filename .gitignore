@@ -10,3 +10,7 @@
 /ft_printf/includes/libft.h.gch
 
 /test/a.out
+
+/ft_printf/a.out.dSYM/
+/ft_printf/ft_printf.h.gch
+test/libftprintf.a

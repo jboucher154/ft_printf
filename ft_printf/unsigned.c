@@ -6,13 +6,13 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:27:08 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 16:07:33 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/23 11:20:46 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	put_unsigned(unsigned long num)
+static void	put_unsigned(unsigned int num)
 {
 	if (num > 9)
 	{
@@ -25,22 +25,22 @@ static void	put_unsigned(unsigned long num)
 	}
 }
 
-static int	print_pad_n_un(t_legend ****legend, int len, int num, int z_pad)
+static int	print_pad_n_un(t_legend ****leg, int len, unsigned int n, int z_pad)
 {
 	int		sp_pad;
 	int		count;
 
 	count = 0;
-	if ((***legend)->padding > 0 && (***legend)->zero == 0)
+	if ((***leg)->padding > 0 && (***leg)->zero == 0)
 	{
-		sp_pad = (***legend)->padding - (len + z_pad);
+		sp_pad = (***leg)->padding - (len + z_pad);
 		count += print_flag_char(' ', sp_pad);
 	}
 	count += print_flag_char('0', (z_pad));
-	put_unsigned(num);
+	put_unsigned(n);
 	count += len;
-	sp_pad = (***legend)->dash[1] - (count);
-	if ((***legend)->dash[0] == 1 && (***legend)->dash[1] > 0)
+	sp_pad = (***leg)->dash[1] - (count);
+	if ((***leg)->dash[0] == 1 && (***leg)->dash[1] > 0)
 		count += print_flag_char(' ', sp_pad);
 	return (count);
 }

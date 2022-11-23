@@ -1,61 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   itoa_base.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 13:35:13 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/23 10:44:28 by jebouche         ###   ########.fr       */
+/*   Created: 2022/10/24 17:50:58 by jebouche          #+#    #+#             */
+/*   Updated: 2022/11/22 11:45:18 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	get_num_len_u(unsigned long n, int base)
+static int	get_num_len(long int n)
 {
-	unsigned long	i;
-	unsigned long	ub;
+	int	i;
 
 	i = 0;
-	if (base > 0)
-		ub = (unsigned long) base;
-	else
-		return (0);
-	if (n < ub)
-		return (1);
+	if (n < 0)
+	{
+		n = n * -1;
+		i++;
+	}
+	if (n < 10)
+		i++;
 	else
 	{
-		while (n >= ub)
+		while (n > 0)
 		{
-			n = n / ub;
+			n = n / 10;
 			i++;
 		}
 	}
-	return (i + 1);
+	return (i);
 }
 
-char	*ft_itoa_ubase(unsigned long num, int base)
+char	*ft_itoa(int n)
 {
 	char		*str_num;
 	int			len;
-	int			to_add;
+	long int	num;
 
-	len = get_num_len_u(num, base);
+	num = n;
+	len = get_num_len(num);
 	str_num = (char *) malloc(sizeof(char) * (len + 1));
 	if (str_num)
 	{
 		str_num[len--] = '\0';
 		if (num == 0)
 			str_num[0] = '0';
+		else if (num < 0)
+		{
+			str_num[0] = '-';
+			num *= -1;
+		}
 		while (num > 0)
 		{
-			to_add = (num % base);
-			if (to_add <= 9)
-				str_num[len--] = to_add + 48;
-			else
-				str_num[len--] = to_add + 87;
-			num = num / base;
+			str_num[len--] = (num % 10) + 48;
+			num = num / 10;
 		}
 	}
 	return (str_num);

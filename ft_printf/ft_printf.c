@@ -6,13 +6,11 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 17:02:39 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 16:47:11 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/23 15:47:14 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-// #include <stdio.h> //remove
 
 static void	print_out(const char *str, unsigned int i, va_list *lst, int *c)
 {
@@ -48,26 +46,7 @@ int	ft_printf(const char *input, ...)
 	}
 	else
 	{
-		ft_putstr_fd("(null)", 1);
-		printed += 5;
+		printed = print_null();
 	}
 	return (printed);
 }
-
-
-// int	main(void)
-// {
-// 	int	ft;
-// 	int	pf;
-
-// 	ft = ft_printf("%c", '0');
-// 	pf = printf("%c", '0');
-
-// 	printf("\nft: %i pf: %i\n", ft, pf);
-
-// 	ft = ft_printf("| %c |", '0');
-// 	pf = printf("| %c |", '0');
-
-// 	printf("\nft: %i pf: %i\n", ft, pf);
-// 	return (0);
-// } 
