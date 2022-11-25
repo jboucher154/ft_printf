@@ -6,11 +6,31 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:28:31 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 13:15:36 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:58:08 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static t_legend	*new_legend(void)
+{
+	t_legend	*new;
+
+	new = (t_legend *) malloc(sizeof(t_legend));
+	if (new)
+	{
+		new->padding = 0;
+		new->zero = 0;
+		new->period[0] = 0;
+		new->period[1] = 0;
+		new->hash = 0;
+		new->plus = 0;
+		new->space = 0;
+		new->dash[0] = 0;
+		new->dash[1] = 0;
+	}
+	return (new);
+}
 
 static char	*get_legend(const char *str, unsigned int index, unsigned int *end)
 {

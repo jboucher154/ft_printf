@@ -6,7 +6,7 @@
 #    By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 16:53:06 by jebouche          #+#    #+#              #
-#    Updated: 2022/11/23 09:59:50 by jebouche         ###   ########.fr        #
+#    Updated: 2022/11/25 14:57:23 by jebouche         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,11 @@ LIB = libft.a
 
 SRCS =  ft_printf.c conversion.c flags.c handle_specifiers.c legend.c \
 		characters.c hexadecimal.c itoa_base.c numbers.c padding.c \
-		percent.c struct.c unsigned.c
+		percent.c unsigned.c num_utils.c
 
 OBJS =  ft_printf.o conversion.o flags.o handle_specifiers.o legend.o \
 		characters.o hexadecimal.o itoa_base.o numbers.o padding.o \
-		percent.o struct.o unsigned.o
+		percent.o unsigned.o num_utils.o
 
 DEPS = -Ift_printf.h
 

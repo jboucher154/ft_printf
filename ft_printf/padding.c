@@ -6,13 +6,13 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 10:55:48 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/23 15:34:18 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:55:35 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	specifier_specific(t_legend *****leg)
+static int	specifier_specific(t_legend *****leg)
 {
 	if ((****leg)->specifier == 'd' || (****leg)->specifier == 'i')
 	{

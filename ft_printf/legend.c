@@ -6,13 +6,13 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:53:58 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 11:48:57 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:59:31 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	check_num(const char *str, int *index)
+static int	check_num(const char *str, int *index)
 {
 	int	sum;
 
@@ -31,7 +31,7 @@ int	check_num(const char *str, int *index)
 	return (sum);
 }
 
-int	is_plus_hex_spc(char c, t_legend ***leg, int	*i)
+static int	is_plus_hex_spc(char c, t_legend ***leg, int	*i)
 {
 	if (c == '#' || c == '+' || c == ' ')
 	{
@@ -47,7 +47,7 @@ int	is_plus_hex_spc(char c, t_legend ***leg, int	*i)
 	return (0);
 }
 
-void	eval_zero(t_legend ***leg, const char *str, int *i)
+static void	eval_zero(t_legend ***leg, const char *str, int *i)
 {
 	if (str[*i] == '0' && *i == 0)
 	{
@@ -56,14 +56,14 @@ void	eval_zero(t_legend ***leg, const char *str, int *i)
 	}
 	else if (str[*i] == '0')
 	{
-		if (((**leg)->hash == 1 || (**leg)->plus == 1 || (**leg)->space == 1) 
+		if (((**leg)->hash == 1 || (**leg)->plus == 1 || (**leg)->space == 1)
 			&& (!(**leg)->dash[0] && !(**leg)->period[0]))
 			(**leg)->zero = 1;
 			(*i)++;
 	}
 }
 
-void	eval_check_dash(t_legend ***leg, const char *str, int *i)
+static void	eval_check_dash(t_legend ***leg, const char *str, int *i)
 {
 	if (str[*i] == '.')
 	{
@@ -91,7 +91,7 @@ int	fill_legend(const char *str_leg, t_legend **leg)
 
 	i = 0;
 	if (!str_leg || !(*leg))
-		return (0);	
+		return (0);
 	while (str_leg[i] != '\0')
 	{
 		is_plus_hex_spc(str_leg[i], &leg, &i);

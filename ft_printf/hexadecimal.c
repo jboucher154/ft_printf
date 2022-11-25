@@ -6,13 +6,13 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:58:43 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/23 15:54:46 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:54:46 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	hex_to_caps(char **str)
+static void	hex_to_caps(char **str)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ void	hex_to_caps(char **str)
 	}
 }
 
-int	print_pad_n_string(t_legend ****leg, int len, char *hex_str, int z_pad)
+static int	print_pad_n_string(t_legend ****leg, int l, char *h_str, int z_pad)
 {
 	int		sp_pad;
 	int		count;
@@ -35,14 +35,18 @@ int	print_pad_n_string(t_legend ****leg, int len, char *hex_str, int z_pad)
 	count = 0;
 	if ((***leg)->padding > 0 && (***leg)->zero == 0)
 	{
-		sp_pad = (***leg)->padding - (((***leg)->hash * 2) + len + z_pad);
+		sp_pad = (***leg)->padding - (((***leg)->hash * 2) + l + z_pad);
 		count += print_flag_char(' ', sp_pad);
 	}
 	if ((***leg)->hash == 1)
 		count += apply_hex_prefix((***leg)->specifier);
 	count += print_flag_char('0', (z_pad));
-	ft_putstr_fd(hex_str, 1);
-	count += len;
+	if (!(ft_strncmp(h_str, "0", l) == 0 && (***leg)->period[0] == 1 \
+		&& (***leg)->period[1] == 0))
+	{
+		ft_putstr_fd(h_str, 1);
+		count += l;
+	}
 	sp_pad = (***leg)->dash[1] - (count);
 	if ((***leg)->dash[0] == 1 && (***leg)->dash[1] > 0)
 		count += print_flag_char(' ', sp_pad);

@@ -6,7 +6,7 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:17:45 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/23 13:08:42 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:52:08 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	print_char(t_legend ***legend, va_list *list)
 	return (count);
 }
 
-int	with_dash(t_legend ****leg, int len, char *str, int *i)
+static int	with_dash(t_legend ****leg, int len, char *str, int *i)
 {
 	int	count;
 
@@ -47,7 +47,7 @@ int	with_dash(t_legend ****leg, int len, char *str, int *i)
 		count++;
 		(*i)++;
 	}
-	if ((***leg)->dash[1] >= 1)//
+	if ((***leg)->dash[1] >= 1)
 		count += print_flag_char(' ', (***leg)->dash[1]);
 	return (count);
 }
@@ -80,7 +80,7 @@ int	print_string(t_legend ***legend, va_list *list)
 		count += print_flag_char(' ', (**legend)->padding);
 		while (i < len)
 		{
-			ft_putchar_fd(str[i++], 1);//changed++
+			ft_putchar_fd(str[i++], 1);
 			count++;
 		}
 	}

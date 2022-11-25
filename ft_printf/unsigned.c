@@ -6,7 +6,7 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:27:08 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/23 11:20:46 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:29:59 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ static int	print_pad_n_un(t_legend ****leg, int len, unsigned int n, int z_pad)
 		count += print_flag_char(' ', sp_pad);
 	}
 	count += print_flag_char('0', (z_pad));
-	put_unsigned(n);
-	count += len;
+	if (!(n == 0 && (***leg)->period[0] == 1 && (***leg)->period[1] == 0))
+	{
+		put_unsigned(n);
+		count += len;
+	}
 	sp_pad = (***leg)->dash[1] - (count);
 	if ((***leg)->dash[0] == 1 && (***leg)->dash[1] > 0)
 		count += print_flag_char(' ', sp_pad);

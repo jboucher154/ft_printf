@@ -6,13 +6,13 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:05:02 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 16:07:21 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:55:54 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_pad_n_per(t_legend ****legend, int z_pad)
+static int	print_pad_n_per(t_legend ****legend, int z_pad)
 {
 	int	sp_pad;
 	int	count;
