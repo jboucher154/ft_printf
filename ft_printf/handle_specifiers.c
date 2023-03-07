@@ -6,7 +6,7 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:14:26 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/25 15:07:35 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/12/12 10:25:30 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 int	handle_per_specifier(t_legend **legend, va_list *list)
 {
 	if ((*legend)->specifier == '%')
-		return (print_percent(&legend));
+		return (print_percent(legend));
 	if ((*legend)->specifier == 'c')
-		return (print_char(&legend, list));
+		return (print_char(legend, list));
 	if ((*legend)->specifier == 's')
-		return (print_string(&legend, list));
+		return (print_string(legend, list));
 	if ((*legend)->specifier == 'd' || (*legend)->specifier == 'i')
-		return (print_int_dec(&legend, list));
+		return (print_int_dec(legend, list));
 	if ((*legend)->specifier == 'u')
-		return (print_unsigned(&legend, list));
+		return (print_unsigned(legend, list));
 	if ((*legend)->specifier == 'x' || (*legend)->specifier == 'X')
-		return (print_hex(&legend, list));
+		return (print_hex(legend, list));
 	if ((*legend)->specifier == 'p')
 	{
 		(*legend)->hash = 1;
-		return (print_hex(&legend, list));
+		return (print_hex(legend, list));
 	}
 	return (0);
 }

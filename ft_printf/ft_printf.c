@@ -6,7 +6,7 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 17:02:39 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/25 14:19:55 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/12/12 10:33:32 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int	ft_printf(const char *input, ...)
 	}
 	else
 	{
-		printed = print_null();
+		ft_putstr_fd("(null)", 1);
+		printed = 6;
 	}
 	return (printed);
 }

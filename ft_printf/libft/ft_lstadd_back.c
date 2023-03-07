@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.c                                           :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 16:56:06 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/22 11:49:27 by jebouche         ###   ########.fr       */
+/*   Created: 2022/12/09 12:38:47 by jebouche          #+#    #+#             */
+/*   Updated: 2022/12/09 12:44:35 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-t_legend	*new_legend(void)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_legend	*new;
+	t_list	*last;
 
-	new = (t_legend *) malloc(sizeof(t_legend));
-	if (new)
+	if (!lst || !new)
+		return ;
+	if (!(*lst))
 	{
-		new->padding = 0;
-		new->zero = 0;
-		new->period[0] = 0;
-		new->period[1] = 0;
-		new->hash = 0;
-		new->plus = 0;
-		new->space = 0;
-		new->dash[0] = 0;
-		new->dash[1] = 0;
+		(*lst) = new;
+		return ;
 	}
-	return (new);
+	last = ft_lstlast(*lst);
+	last->next = new;
+	new->previous = last;
 }

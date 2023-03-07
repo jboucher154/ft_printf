@@ -6,7 +6,7 @@
 #    By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/16 16:53:06 by jebouche          #+#    #+#              #
-#    Updated: 2022/11/25 14:57:23 by jebouche         ###   ########.fr        #
+#    Updated: 2023/03/07 16:33:21 by jebouche         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS =  ft_printf.o conversion.o flags.o handle_specifiers.o legend.o \
 		characters.o hexadecimal.o itoa_base.o numbers.o padding.o \
 		percent.o unsigned.o num_utils.o
 
-DEPS = -Ift_printf.h
+DEPS = -I. -I./libft
 
 CC = cc
 
@@ -35,18 +35,16 @@ $(NAME): $(OBJS)
 		cp ./libft/$(LIB) ./$(NAME)
 		ar -rucs $(NAME) $(OBJS)
 
-$(OBJS): $(SRCS)
-		$(CC) $(CFLAGS) -c $(SRCS)
-
+%.o: %.c $(DEPS)
+		$(CC) $(CFLAGS) -c $< -o $@
+		
 clean:
-		rm -f $(OBJS)
+		rm -f $(OBJS) $(B_OBJS)
 		$(MAKE) fclean -C libft
 
 fclean: clean
 		rm -f $(NAME)
 
 re: fclean all
-
-bonus: $(NAME)
 
 .PHONY: all clean fclean re

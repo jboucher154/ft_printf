@@ -6,7 +6,7 @@
 /*   By: jebouche <jebouche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:12:14 by jebouche          #+#    #+#             */
-/*   Updated: 2022/11/25 14:49:17 by jebouche         ###   ########.fr       */
+/*   Updated: 2022/12/12 11:12:40 by jebouche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static int	print_sign(int plus, long int num)
 	return (count);
 }
 
-static int	print_if_non_zero(t_legend *****leg, long int num, int len)
+static int	print_if_non_zero(t_legend **leg, long int num, int len)
 {
-	if (!(num == 0 && (****leg)->period[0] == 1 && (****leg)->period[1] == 0))
+	if (!(num == 0 && (*leg)->period[0] == 1 && (*leg)->period[1] == 0))
 	{
 		ft_putnbr_nosign(num, 1);
 		return (len);
@@ -36,7 +36,7 @@ static int	print_if_non_zero(t_legend *****leg, long int num, int len)
 	return (0);
 }
 
-static int	print_pad_n_num(t_legend ****leg, int len, long int num, int z_pad)
+static int	print_pad_n_num(t_legend **leg, int len, long int num, int z_pad)
 {
 	int		sp_pad;
 	int		count;
@@ -44,25 +44,28 @@ static int	print_pad_n_num(t_legend ****leg, int len, long int num, int z_pad)
 
 	flag_holder = 0;
 	count = 0;
-	if ((***leg)->plus == 1 || (***leg)->space == 1 || num < 0)
+	if ((*leg)->plus == 1 || (*leg)->space == 1 || num < 0)
 		flag_holder = 1;
-	if ((***leg)->padding > 0 && (***leg)->zero == 0)
+	if ((*leg)->padding > 0 && (*leg)->zero == 0)
 	{
-		sp_pad = (***leg)->padding - (flag_holder + len + z_pad);
+		if (num == 0 && (*leg)->period[0] == 1 && (*leg)->period[1] == 0)
+			sp_pad = (*leg)->padding - (flag_holder + z_pad);
+		else
+		sp_pad = (*leg)->padding - (flag_holder + len + z_pad);
 		count += print_flag_char(' ', sp_pad);
 	}
-	if ((***leg)->space == 1 && num >= 0)
+	if ((*leg)->space == 1 && num >= 0)
 		count += print_flag_char(' ', 1);
-	count += print_sign((***leg)->plus, num);
+	count += print_sign((*leg)->plus, num);
 	count += print_flag_char('0', (z_pad));
-	count += print_if_non_zero(&leg, num, len);
-	sp_pad = (***leg)->dash[1] - (count);
-	if ((***leg)->dash[0] == 1 && (***leg)->dash[1] > 0)
+	count += print_if_non_zero(leg, num, len);
+	sp_pad = (*leg)->dash[1] - (count);
+	if ((*leg)->dash[0] == 1 && (*leg)->dash[1] > 0)
 		count += print_flag_char(' ', sp_pad);
 	return (count);
 }
 
-int	print_int_dec(t_legend ***legend, va_list *list)
+int	print_int_dec(t_legend **legend, va_list *list)
 {
 	int			count;
 	long int	num;
@@ -74,9 +77,9 @@ int	print_int_dec(t_legend ***legend, va_list *list)
 		len = get_num_len_long(num * -1);
 	else
 		len = get_num_len_long(num);
-	z_pad = get_zpad(&legend, len);
-	if ((**legend)->zero == 1 && num < 0)
+	z_pad = get_zpad(legend, len);
+	if ((*legend)->zero == 1 && num < 0)
 		z_pad--;
-	count = print_pad_n_num(&legend, len, num, z_pad);
+	count = print_pad_n_num(legend, len, num, z_pad);
 	return (count);
 }
