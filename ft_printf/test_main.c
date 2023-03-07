@@ -176,6 +176,10 @@ void	c_test(void)
 	pf = printf("%c %c %c %c %c\n", 't', 'e', 's', 't', '!');
 	printf("\nft: %i pf: %i\n", ft, pf);
 
+	ft = ft_printf("| %1c |\n", 'a');
+	pf = printf("| %1c |\n", 'a');
+	printf("\nft: %i pf: %i\n", ft, pf);
+
 	// 	// char 	tests
 // 	char	test = 't';
 	
@@ -1167,280 +1171,280 @@ void	mix_flag_test(void)
 	int ft;
 	int	pf;
 
-	// printf("\033[0;35m __________%s__________\033[0;0m\n", "zero_dash_TESTS");
-	// 			printf("\033[0;34m __________%s__________\033[0;0m\n", "s_TESTS");
-	// ft = ft_printf("|%0-s|\n", "hello_tester");
-	// pf = printf("|%0-s|\n", "hello_tester");
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 printf("\033[0;35m __________%s__________\033[0;0m\n", "zero_dash_TESTS");
+	 			printf("\033[0;34m __________%s__________\033[0;0m\n", "s_TESTS");
+	 ft = ft_printf("|%0-s|\n", "hello_tester");
+	 pf = printf("|%0-s|\n", "hello_tester");
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-7s|\n", "hello_tester");
-	// pf = printf("|%010-7s|\n", "hello_tester");
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-7s|\n", "hello_tester");
+	 pf = printf("|%010-7s|\n", "hello_tester");
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-0s|\n", "hello_tester");
-	// pf = printf("|%010-0s|\n", "hello_tester");
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-0s|\n", "hello_tester");
+	 pf = printf("|%010-0s|\n", "hello_tester");
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%01-10s|\n", "hello_tester");
-	// pf = printf("|%01-10s|\n", "hello_tester");
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%01-10s|\n", "hello_tester");
+	 pf = printf("|%01-10s|\n", "hello_tester");
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// printf("\033[0;34m __________%s__________\033[0;0m\n", "d_TESTS");
-	// ft = ft_printf("|%0-d|\n", 0);
-	// pf = printf("|%0-d|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 printf("\033[0;34m __________%s__________\033[0;0m\n", "d_TESTS");
+	 ft = ft_printf("|%0-d|\n", 0);
+	 pf = printf("|%0-d|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-7d|\n", 0);
-	// pf = printf("|%010-7d|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-7d|\n", 0);
+	 pf = printf("|%010-7d|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-0d|\n", -1);
-	// pf = printf("|%010-0d|\n", -1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-0d|\n", -1);
+	 pf = printf("|%010-0d|\n", -1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%01-10d|\n", 1);
-	// pf = printf("|%01-10d|\n", 1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%01-10d|\n", 1);
+	 pf = printf("|%01-10d|\n", 1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-0d|\n", INT_MIN);
-	// pf = printf("|%010-0d|\n", INT_MIN);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-0d|\n", INT_MIN);
+	 pf = printf("|%010-0d|\n", INT_MIN);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%01-10d|\n", INT_MAX);
-	// pf = printf("|%01-10d|\n", INT_MAX);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%01-10d|\n", INT_MAX);
+	 pf = printf("|%01-10d|\n", INT_MAX);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// printf("\033[0;34m __________%s__________\033[0;0m\n", "i_TESTS");
-	// ft = ft_printf("|%0-i|\n", 0);
-	// pf = printf("|%0-i|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 printf("\033[0;34m __________%s__________\033[0;0m\n", "i_TESTS");
+	 ft = ft_printf("|%0-i|\n", 0);
+	 pf = printf("|%0-i|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-7i|\n", 0);
-	// pf = printf("|%010-7i|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-7i|\n", 0);
+	 pf = printf("|%010-7i|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-0i|\n", -1);
-	// pf = printf("|%010-0i|\n", -1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-0i|\n", -1);
+	 pf = printf("|%010-0i|\n", -1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%01-10i|\n", 1);
-	// pf = printf("|%01-10i|\n", 1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%01-10i|\n", 1);
+	 pf = printf("|%01-10i|\n", 1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-0i|\n", INT_MIN);
-	// pf = printf("|%010-0i|\n", INT_MIN);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-0i|\n", INT_MIN);
+	 pf = printf("|%010-0i|\n", INT_MIN);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%01-10i|\n", INT_MAX);
-	// pf = printf("|%01-10i|\n", INT_MAX);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%01-10i|\n", INT_MAX);
+	 pf = printf("|%01-10i|\n", INT_MAX);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// printf("\033[0;34m __________%s__________\033[0;0m\n", "u_TESTS");
-	// ft = ft_printf("|%0-u|\n", 0);
-	// pf = printf("|%0-u|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 printf("\033[0;34m __________%s__________\033[0;0m\n", "u_TESTS");
+	 ft = ft_printf("|%0-u|\n", 0);
+	 pf = printf("|%0-u|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-7u|\n", 0);
-	// pf = printf("|%010-7u|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-7u|\n", 0);
+	 pf = printf("|%010-7u|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-0u|\n", -1);
-	// pf = printf("|%010-0u|\n", -1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-0u|\n", -1);
+	 pf = printf("|%010-0u|\n", -1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%01-10u|\n", 1);
-	// pf = printf("|%01-10u|\n", 1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%01-10u|\n", 1);
+	 pf = printf("|%01-10u|\n", 1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-0u|\n", INT_MIN);
-	// pf = printf("|%010-0u|\n", INT_MIN);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-0u|\n", INT_MIN);
+	 pf = printf("|%010-0u|\n", INT_MIN);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%01-10u|\n", UINT_MAX);
-	// pf = printf("|%01-10u|\n", UINT_MAX);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%01-10u|\n", UINT_MAX);
+	 pf = printf("|%01-10u|\n", UINT_MAX);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// printf("\033[0;34m __________%s__________\033[0;0m\n", "x_TESTS");
-	// ft = ft_printf("|%0-x|\n", 0);
-	// pf = printf("|%0-x|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 printf("\033[0;34m __________%s__________\033[0;0m\n", "x_TESTS");
+	 ft = ft_printf("|%0-x|\n", 0);
+	 pf = printf("|%0-x|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-7x|\n", 0);
-	// pf = printf("|%010-7x|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-7x|\n", 0);
+	 pf = printf("|%010-7x|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-0x|\n", -1);
-	// pf = printf("|%010-0x|\n", -1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-0x|\n", -1);
+	 pf = printf("|%010-0x|\n", -1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%01-10x|\n", 1);
-	// pf = printf("|%01-10x|\n", 1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%01-10x|\n", 1);
+	 pf = printf("|%01-10x|\n", 1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010-0x|\n", INT_MIN);
-	// pf = printf("|%010-0x|\n", INT_MIN);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010-0x|\n", INT_MIN);
+	 pf = printf("|%010-0x|\n", INT_MIN);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%01-10x|\n", UINT_MAX);
-	// pf = printf("|%01-10x|\n", UINT_MAX);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%01-10x|\n", UINT_MAX);
+	 pf = printf("|%01-10x|\n", UINT_MAX);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// printf("\033[0;35m __________%s__________\033[0;0m\n", "dash_period_TESTS");
-	// printf("\033[0;34m __________%s__________\033[0;0m\n", "s_TESTS");
-	// ft = ft_printf("|%-.s|\n", "hello_tester");
-	// pf = printf("|%-.s|\n", "hello_tester");
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 printf("\033[0;35m __________%s__________\033[0;0m\n", "dash_period_TESTS");
+	 printf("\033[0;34m __________%s__________\033[0;0m\n", "s_TESTS");
+	 ft = ft_printf("|%-.s|\n", "hello_tester");
+	 pf = printf("|%-.s|\n", "hello_tester");
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.7s|\n", "hello_tester");
-	// pf = printf("|%-10.7s|\n", "hello_tester");
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.7s|\n", "hello_tester");
+	 pf = printf("|%-10.7s|\n", "hello_tester");
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.0s|\n", "hello_tester");
-	// pf = printf("|%-10.0s|\n", "hello_tester");
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.0s|\n", "hello_tester");
+	 pf = printf("|%-10.0s|\n", "hello_tester");
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-1.10s|\n", "hello_tester");
-	// pf = printf("|%-1.10s|\n", "hello_tester");
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-1.10s|\n", "hello_tester");
+	 pf = printf("|%-1.10s|\n", "hello_tester");
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// printf("\033[0;34m __________%s__________\033[0;0m\n", "d_TESTS");
-	// ft = ft_printf("|%-.d|\n", 0);
-	// pf = printf("|%-.d|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 printf("\033[0;34m __________%s__________\033[0;0m\n", "d_TESTS");
+	 ft = ft_printf("|%-.d|\n", 0);
+	 pf = printf("|%-.d|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.7d|\n", 1);
-	// pf = printf("|%-10.7d|\n", 1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.7d|\n", 1);
+	 pf = printf("|%-10.7d|\n", 1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.0d|\n", -1);
-	// pf = printf("|%-10.0d|\n", -1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.0d|\n", -1);
+	 pf = printf("|%-10.0d|\n", -1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-1.10d|\n", 1);
-	// pf = printf("|%-1.10d|\n", 1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-1.10d|\n", 1);
+	 pf = printf("|%-1.10d|\n", 1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.0d|\n", INT_MIN);
-	// pf = printf("|%-10.0d|\n", INT_MIN);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.0d|\n", INT_MIN);
+	 pf = printf("|%-10.0d|\n", INT_MIN);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-1.10d|\n", INT_MAX);
-	// pf = printf("|%-1.10d|\n", INT_MAX);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-1.10d|\n", INT_MAX);
+	 pf = printf("|%-1.10d|\n", INT_MAX);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// printf("\033[0;34m __________%s__________\033[0;0m\n", "i_TESTS");
-	// ft = ft_printf("|%-.i|\n", 0);
-	// pf = printf("|%-.i|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 printf("\033[0;34m __________%s__________\033[0;0m\n", "i_TESTS");
+	 ft = ft_printf("|%-.i|\n", 0);
+	 pf = printf("|%-.i|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.7i|\n", 1);
-	// pf = printf("|%-10.7i|\n", 1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.7i|\n", 1);
+	 pf = printf("|%-10.7i|\n", 1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.0i|\n", -1);
-	// pf = printf("|%-10.0i|\n", -1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.0i|\n", -1);
+	 pf = printf("|%-10.0i|\n", -1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-1.10i|\n", 1);
-	// pf = printf("|%-1.10i|\n", 1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-1.10i|\n", 1);
+	 pf = printf("|%-1.10i|\n", 1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.0i|\n", INT_MIN);
-	// pf = printf("|%-10.0i|\n", INT_MIN);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.0i|\n", INT_MIN);
+	 pf = printf("|%-10.0i|\n", INT_MIN);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-1.10i|\n", INT_MAX);
-	// pf = printf("|%-1.10i|\n", INT_MAX);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-1.10i|\n", INT_MAX);
+	 pf = printf("|%-1.10i|\n", INT_MAX);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// printf("\033[0;34m __________%s__________\033[0;0m\n", "u_TESTS");
-	// ft = ft_printf("|%-.u|\n", 0);
-	// pf = printf("|%-.u|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 printf("\033[0;34m __________%s__________\033[0;0m\n", "u_TESTS");
+	 ft = ft_printf("|%-.u|\n", 0);
+	 pf = printf("|%-.u|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-.u|\n", 1);
-	// pf = printf("|%-.u|\n", 1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-.u|\n", 1);
+	 pf = printf("|%-.u|\n", 1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.7u|\n", 0);
-	// pf = printf("|%-10.7u|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.7u|\n", 0);
+	 pf = printf("|%-10.7u|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.0u|\n", -1);
-	// pf = printf("|%-10.0u|\n", -1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.0u|\n", -1);
+	 pf = printf("|%-10.0u|\n", -1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-1.10u|\n", 1);
-	// pf = printf("|%-1.10u|\n", 1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-1.10u|\n", 1);
+	 pf = printf("|%-1.10u|\n", 1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.0u|\n", INT_MIN);
-	// pf = printf("|%-10.0u|\n", INT_MIN);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.0u|\n", INT_MIN);
+	 pf = printf("|%-10.0u|\n", INT_MIN);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-1.10u|\n", UINT_MAX);
-	// pf = printf("|%-1.10u|\n", UINT_MAX);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-1.10u|\n", UINT_MAX);
+	 pf = printf("|%-1.10u|\n", UINT_MAX);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// printf("\033[0;34m __________%s__________\033[0;0m\n", "x_TESTS");
-	// ft = ft_printf("|%-.x|\n", 0);
-	// pf = printf("|%-.x|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 printf("\033[0;34m __________%s__________\033[0;0m\n", "x_TESTS");
+	 ft = ft_printf("|%-.x|\n", 0);
+	 pf = printf("|%-.x|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.7x|\n", 0);
-	// pf = printf("|%-10.7x|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.7x|\n", 0);
+	 pf = printf("|%-10.7x|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.0x|\n", -1);
-	// pf = printf("|%-10.0x|\n", -1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.0x|\n", -1);
+	 pf = printf("|%-10.0x|\n", -1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-1.10x|\n", 1);
-	// pf = printf("|%-1.10x|\n", 1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-1.10x|\n", 1);
+	 pf = printf("|%-1.10x|\n", 1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-10.0x|\n", INT_MIN);
-	// pf = printf("|%-10.0x|\n", INT_MIN);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-10.0x|\n", INT_MIN);
+	 pf = printf("|%-10.0x|\n", INT_MIN);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%-1.10x|\n", UINT_MAX);
-	// pf = printf("|%-1.10x|\n", UINT_MAX);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%-1.10x|\n", UINT_MAX);
+	 pf = printf("|%-1.10x|\n", UINT_MAX);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 	
-	// printf("\033[0;35m __________%s__________\033[0;0m\n", "zero_period_TESTS");
-	// printf("\033[0;34m __________%s__________\033[0;0m\n", "d_TESTS");
-	// ft = ft_printf("|%0.d|\n", 0);
-	// pf = printf("|%0.d|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 printf("\033[0;35m __________%s__________\033[0;0m\n", "zero_period_TESTS");
+	 printf("\033[0;34m __________%s__________\033[0;0m\n", "d_TESTS");
+	 ft = ft_printf("|%0.d|\n", 0);
+	 pf = printf("|%0.d|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010.7d|\n", 0);
-	// pf = printf("|%010.7d|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010.7d|\n", 0);
+	 pf = printf("|%010.7d|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010.0d|\n", -1);
-	// pf = printf("|%010.0d|\n", -1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010.0d|\n", -1);
+	 pf = printf("|%010.0d|\n", -1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%01.10d|\n", 1);
-	// pf = printf("|%01.10d|\n", 1);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%01.10d|\n", 1);
+	 pf = printf("|%01.10d|\n", 1);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010.0d|\n", INT_MIN);
-	// pf = printf("|%010.0d|\n", INT_MIN);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010.0d|\n", INT_MIN);
+	 pf = printf("|%010.0d|\n", INT_MIN);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%01.10d|\n", INT_MAX);
-	// pf = printf("|%01.10d|\n", INT_MAX);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%01.10d|\n", INT_MAX);
+	 pf = printf("|%01.10d|\n", INT_MAX);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// printf("\033[0;34m __________%s__________\033[0;0m\n", "i_TESTS");
-	// ft = ft_printf("|%0.i|\n", 0);
-	// pf = printf("|%0.i|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 printf("\033[0;34m __________%s__________\033[0;0m\n", "i_TESTS");
+	 ft = ft_printf("|%0.i|\n", 0);
+	 pf = printf("|%0.i|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
-	// ft = ft_printf("|%010.7i|\n", 0);
-	// pf = printf("|%010.7i|\n", 0);
-	// printf("\nft: %i pf: %i\n", ft, pf);
+	 ft = ft_printf("|%010.7i|\n", 0);
+	 pf = printf("|%010.7i|\n", 0);
+	 printf("\nft: %i pf: %i\n", ft, pf);
 
 	ft = ft_printf("|%010.0i|\n", -1);
 	pf = printf("|%010.0i|\n", -1);
